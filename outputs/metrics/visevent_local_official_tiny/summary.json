@@ -1,0 +1,12 @@
+{
+  "tracker": "Local-SDTrack-Tiny-VisEvent-Subset",
+  "sequences": 5,
+  "frames": 3071,
+  "auc_micro": 0.16412881926421233,
+  "pr20_micro": 0.3132530120481928,
+  "auc_sequence_weighted": 0.16412881926421233,
+  "pr20_sequence_weighted": 0.3132530120481928,
+  "mean_iou": 0.157784621026612,
+  "mean_center_error": 81.51725804758904,
+  "absent_filter": true
+}

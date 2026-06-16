@@ -1,0 +1,607 @@
+% !TEX program = xelatex
+\documentclass[UTF8,a4paper,zihao=-4]{ctexart}
+\usepackage[a4paper,left=2.25cm,right=2.25cm,top=2.45cm,bottom=2.35cm]{geometry}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{placeins}
+\usepackage[numbers,sort&compress]{natbib}
+\graphicspath{{report/figures/}{outputs/figures/}{outputs/cases/}{outputs/paper_figures/}{../report/figures/}{../outputs/figures/}{../outputs/cases/}{../outputs/paper_figures/}}
+\hypersetup{colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,urlcolor=blue!55!black}
+\xeCJKsetup{AutoFakeBold=true,AutoFakeSlant=true}
+\setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi]{SimSun}
+\setCJKsansfont{SimHei}
+\setCJKmonofont{FangSong}
+\setCJKfamilyfont{zhsong}[AutoFakeBold=2.3,AutoFakeSlant=0.2]{SimSun}
+\setCJKfamilyfont{zhfs}[AutoFakeBold=2.0,AutoFakeSlant=0.2]{FangSong}
+\linespread{1.16}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.05em}
+\captionsetup{font=small,labelfont=bf}
+\setlist[itemize]{leftmargin=1.8em,itemsep=0.1em,topsep=0.1em}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,frame=single,columns=fullflexible}
+\setcounter{tocdepth}{1}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\figref}[1]{图~\ref{#1}}
+\newcommand{\tabref}[1]{表~\ref{#1}}
+
+\title{\vspace{-1.3cm}\heiti 《SDTrack: A Baseline for Event-based Tracking via Spiking Neural Networks》\\论文解读、复现评估与自适应轨迹提示改进}
+\author{姓名1 / 学号1 \quad 姓名2 / 学号2 \quad 姓名3 / 学号3 \quad 姓名4 / 学号4}
+\date{深度学习期末作业 \quad 2026}
+
+\begin{document}
+\zihao{-4}\songti
+\maketitle
+\begin{abstract}
+\small
+本文围绕 CVPR 2026 论文 SDTrack 展开系统性解读与复现实验。该工作将事件相机输出的异步事件流转化为含正极性计数、负极性计数和全局轨迹记忆的三通道 Global Trajectory Prompt (GTP)，并通过 Intrinsic Position Learning (IPL)、Spiking MetaFormer backbone 与 spike-driven center head 构建端到端事件跟踪器。本文在正文中对事件定义、GTP、I-LIF 神经元、SNN attention、定位指标和能耗公式进行推导式讲解，并基于作者公开 FE108 与 VisEvent tracking results 进行独立复算：FE108 覆盖 32 个测试序列、59688 帧，SDTrack-Base/SDTrack-Tiny 的 AUC 分别为 60.15\%/59.29\%；VisEvent 覆盖 172 个测试序列、93805 帧，SDTrack-Base/SDTrack-Tiny 的 AUC 分别为 34.49\%/33.21\%。进一步地，本文提出 ATR-GTP，将固定轨迹通道强度扩展为事件密度驱动的自适应权重，并给出七组消融协议、可运行代码、图表脚本和一键复现入口。
+\end{abstract}
+
+\vspace{-0.6em}
+\begingroup
+\small
+\setlength{\parskip}{0pt}
+\renewcommand{\contentsname}{目录}
+\tableofcontents
+\endgroup
+\clearpage
+
+\section{论文内容概述}
+\subsection{任务背景：事件流跟踪与脉冲计算的耦合}
+单目标跟踪输入初始目标框 $B_1=(x,y,w,h)$ 与后续观测，输出每一时刻的目标框 $B_t$。RGB 跟踪器依赖纹理、颜色和稳定曝光，在高速运动、弱光、过曝与运动模糊场景中容易产生中心漂移。事件相机记录像素对数亮度变化，基本事件为
+\begin{equation}
+e_k=(x_k,y_k,t_k,p_k),\qquad
+p_k=\mathrm{sign}\left(\Delta \log I(x_k,y_k,t_k)\right)\in\{-1,+1\}.
+\end{equation}
+该表示将视觉输入从稠密帧转化为稀疏异步事件序列。SNN 以膜电位积累与阈值发放生成 spike，可将大量乘加操作替换为累加操作。事件相机提供稀疏观测，SNN 提供稀疏计算，两者共同服务于低能耗、高时间分辨率的目标跟踪。SDTrack 的研究目标可概括为：在保留事件流时序与轨迹信息的前提下，构建能够迁移视觉预训练、具有 template-search 交互能力且理论能耗较低的事件跟踪基线。
+
+从信号建模角度看，事件跟踪的难点来自观测形式与跟踪目标之间的错配：静止纹理在事件流中自然消失，运动边缘被突出，目标位置和速度需要从稀疏触发点中恢复。GTP 给出折中表征，将异步事件转化为规则三通道张量，并用轨迹通道补偿窗口化带来的历史信息损失。
+
+该折中具有明确的工程意义。事件序列的原始形式保留了微秒级时间戳，但批量神经网络更适合处理定长张量；单纯事件帧便于输入 CNN，却会把同一时间窗口内的多次触发合并，弱化速度方向和历史连续性。GTP 将正负极性与轨迹记忆分离，使输入同时包含局部边缘触发、极性变化和跨窗口运动趋势。对于 tracking head 而言，前两通道提供当前可见轮廓，第三通道提供历史运动提示，三者共同约束中心热图和尺度回归。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.84\linewidth]{gpt_event_gtp_mechanism.png}
+\caption{事件表示与 GTP 输入构造。事件相机在亮度变化超过阈值时产生异步事件，红蓝极性分别进入 $C^+$ 与 $C^-$ 计数图；轨迹通道 $C^{traj}$ 通过衰减记忆把跨窗口运动方向保留下来，最终形成 $I_t=[C^+,C^-,C^{traj}]$。该图强调三点：事件表示具有稀疏性，时间窗口把异步流转化为可批处理张量，轨迹记忆为后续跟踪头提供跨窗口位置先验。}
+\label{fig:event-gtp}
+\end{figure}
+
+GTP 是论文的输入层创新。设第 $i$ 个时间窗口为 $L_i$，其三通道定义为
+\begin{align}
+h_i^1(x,y)&=\alpha\sum_{t_k\in L_i}\delta(x-x_k,y-y_k)\delta(p_k-1),\\
+h_i^2(x,y)&=\alpha\sum_{t_k\in L_i}\delta(x-x_k,y-y_k)\delta(p_k+1),\\
+h_i^3(x,y)&=\beta h_{i-1}^3(x,y)+\alpha\sum_{j=1}^{2}C(h_{i-1}^j(x,y),h_i^j(x,y)).
+\end{align}
+前两式对当前窗口内的正负事件进行计数，避免同一像素多次变化被单一极性覆盖；第三式把上一窗口的轨迹记忆按 $\beta$ 衰减后与当前变化叠加，形成位置和形状线索。图 \ref{fig:event-gtp} 的读法应放在两层：从数据层看，GTP 减少了简单 Event Frame 的时间覆盖问题；从模型层看，三通道输出与 ImageNet 预训练视觉骨干兼容，使 SDTrack 可以在事件数据规模有限的条件下利用大规模视觉预训练。
+
+式中 $\alpha$ 控制事件计数尺度，$\delta(\cdot)$ 表示像素网格离散累加，$C(\cdot)$ 表示相邻窗口变化比较。$h_i^1,h_i^2$ 对应当前瞬时运动证据，$h_i^3$ 对应随时间衰减的历史证据。若 $\beta$ 过小，历史轨迹很快消失；若 $\beta$ 过大，背景闪烁和相似目标轨迹会形成残影。第三章提出的 ATR-GTP 正是针对这一固定权重敏感性展开。
+
+从信息瓶颈角度看，GTP 完成了从 $\{(x_k,y_k,t_k,p_k)\}_{k=1}^{N_i}$ 到 $H\times W\times3$ 的映射。该映射压缩了窗口内部的细粒度到达顺序，同时保留了极性、空间位置和跨窗口变化三类主变量。其优势是可以直接复用视觉 backbone 的卷积归纳偏置；其代价是时间窗口长度、归一化尺度和 $\beta$ 会共同决定轨迹记忆强弱。因此，GTP 既是输入表示，也是后续误差传播的源头。
+
+\subsection{总体结构：GTP、IPL 与 SNN 跟踪头的耦合}
+SDTrack 可以理解为三步：先把事件流变成带轨迹记忆的三通道图像，再用 IPL 建立模板和搜索区域的位置关系，最后用 SNN backbone 和 head 输出目标框。
+
+SDTrack 的核心结构如图 \ref{fig:pipeline} 所示。template/search event streams 先由 GTP 转换为三通道 event image；IPL 将模板和搜索区域置入统一矩阵，使早期卷积能够接触二者的相对几何布局；SNN Conv Module 提取局部脉冲特征；restore 与 tokenization 将二维特征恢复为 token 序列；SNN Transformer Module 完成高层目标相关交互；SNN Tracking Head 最终输出中心概率、目标尺寸和偏移量。该链路的关键在于输入表征、空间关系学习和低能耗 token 交互三者同时成立。
+
+IPL 的数学形式为
+\begin{equation}
+U=\mathrm{IPL}(X,Z)=
+\begin{bmatrix}
+X&O_1\\
+O_2&Z
+\end{bmatrix},
+\end{equation}
+其中 $X$ 为搜索区域，$Z$ 为模板区域，$O_1,O_2$ 为零填充。该拼接方式使早期卷积核在统一矩阵中接触 template-search 的相对布局，位置关系通过卷积特征被隐式学习。SNN Transformer 中的 self-attention 可写为
+\begin{equation}
+\mathrm{SSA}(Q_s,K_s,V_s)=Q_sK_s^\top V_s\cdot s,
+\end{equation}
+其中 $Q_s,K_s,V_s$ 为 spike token 映射。tracking head 预测中心热图、尺度与偏移。第一层和 head 分支末层保留浮点卷积，用于稳定输入编码和连续坐标回归；其余主要路径采用 spike-driven 计算。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\linewidth]{gpt_sdtrack_full_mechanism.png}
+\caption{SDTrack 总体机制图。左侧事件流经 Template/Search 时间窗口进入 GTP，三通道张量随后通过 IPL 形成联合空间布局；中部的 SNN Conv、Restore、Tokenize 与 SNN Transformer 构成特征提取和 token 交互主干；右侧 tracking head 将中心、尺度与偏移联合解码为目标框。下方能耗分支提示 MAC、AC 与 firing rate 的关系，为后续能耗解释提供结构入口。}
+\label{fig:pipeline}
+\end{figure}
+
+图 \ref{fig:pipeline} 可按“表征、交互、解码、能耗”四条线索阅读：GTP 完成异步事件到规则张量的转换，IPL 与 SNN backbone 传播模板-搜索相关性，head 将离散特征恢复为连续定位框，能耗分支把 MAC、AC 与 firing rate 联系起来。图中的 I-LIF、SSA 和 Head 公式标签说明输入编码、位置耦合和输出回归共同服务于事件跟踪。
+
+IPL 的作用尤其关键。传统 Siamese 跟踪器通常在较高层特征上进行相关匹配，模板与搜索区域的交互发生较晚；SDTrack 将二者放入同一空间矩阵，使低层卷积即可感知模板和搜索区域的相对位置。随后 SNN Conv 将局部图案转化为 spike feature，SNN Transformer 负责跨 token 的目标相关性整合。该设计使位置关系、目标外观和事件轨迹在多个层级中反复耦合，有助于缓解事件数据纹理稀缺造成的匹配不稳定。
+
+\begin{table}[H]
+\centering
+\scriptsize
+\caption{本文理解的三点核心贡献。}
+\label{tab:core-contrib}
+\begin{tabular}{p{0.18\linewidth}p{0.75\linewidth}}
+\toprule
+贡献 & 技术含义\\
+\midrule
+GTP 输入表示 & 将异步事件流转化为正极性、负极性和全局轨迹记忆三通道图像，使事件数据可进入视觉骨干并保留跨窗口运动线索。\\
+IPL 位置组织 & 在输入空间显式组织 template-search 相对布局，使早期卷积层获得几何关系，降低后层 token 交互的匹配压力。\\
+脉冲跟踪器 & 以 spike-driven backbone 与 head 保持跟踪精度，并通过 AC、低 firing rate 和有限时间步降低理论能耗。\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{实验结果与指标解释}
+跟踪性能主要由 AUC 与 PR20 衡量。IoU、AUC 与 PR20 分别定义为
+\begin{align}
+\mathrm{IoU}_t&=\frac{|B_t^{pred}\cap B_t^{gt}|}{|B_t^{pred}\cup B_t^{gt}|},\\
+\mathrm{AUC}&=\frac{1}{|\Theta|}\sum_{\theta\in\Theta}\frac{1}{T}\sum_{t=1}^{T}\mathbb{I}(\mathrm{IoU}_t\ge \theta),\\
+\mathrm{PR20}&=\frac{1}{T}\sum_{t=1}^{T}\mathbb{I}(\|c_t^{pred}-c_t^{gt}\|_2\le20).
+\end{align}
+AUC 评价框重叠质量，PR20 评价中心定位精度；两者联合使用可以区分“中心接近但尺度错误”和“中心漂移导致重叠下降”两类现象。能耗估计采用 45 nm 32-bit 浮点参考常数 $E_{MAC}=4.6$pJ、$E_{AC}=0.9$pJ：
+\begin{equation}
+E=T\left(E_{MAC}\sum_i FL_i^{conv}+E_{AC}\sum_j FL_j^{spike}fr_j+\sum_k FL_k^{SSA}\right).
+\end{equation}
+该式中的 $fr_j$ 是 spike firing rate，决定 AC 项的有效规模；SSA 项保留 attention 的 token 交互开销。表 \ref{tab:main-metrics} 汇总论文指标与本文复算指标。纸面指标显示 SDTrack-Tiny-1x4 在 FE108 上达到 59.0\% AUC 和 91.3\% PR20，理论能耗仅 8.16 mJ；本文基于公开预测框复算得到 FE108 Tiny AUC 59.29\%、PR20 91.04\%，与论文量级一致。VisEvent 全量官方结果包复算中，SDTrack-Base 和 SDTrack-Tiny 仍排在前两位，说明跨数据集排序具有稳定性。
+
+\begin{table}[H]
+\centering
+\small
+\caption{论文指标与本文独立复算摘要。FE108/VisEvent 复算均使用公开 tracking results 与评估真值，统一由 Python evaluator 计算。}
+\label{tab:main-metrics}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+方法 & 参数(M) & 能耗(mJ) & 论文FE108 AUC & 论文FE108 PR & 复算FE108 AUC & 复算VisEvent AUC\\
+\midrule
+SDTrack-Tiny-1x4 & 19.61 & 8.16 & 59.0 & 91.3 & 59.29 & 33.21\\
+SDTrack-Base-1x4 & 107.26 & 30.52 & 59.9 & 91.5 & 60.15 & 34.49\\
+SNNTrack & 31.40 & 8.25 & -- & -- & -- & 31.61\\
+HiT-B & 42.22 & 19.78 & 55.9 & 88.5 & 56.07 & 31.49\\
+OSTrack & 92.52 & 98.90 & 54.6 & 87.1 & 54.54 & 29.70\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+表 \ref{tab:main-metrics} 展示了清晰的效率折中：SDTrack-Base 相比 Tiny 参数量约为 $5.47$ 倍，理论能耗约为 $3.74$ 倍，但 FE108 复算 AUC 仅提升 $0.86$ 个百分点。这说明事件跟踪中的主要收益并不完全来自模型容量，输入表征和 spike-driven 交互对性能-能耗平衡更关键。AUC 同时反映中心和尺度误差，PR20 更偏向中心定位；二者联合可区分中心漂移、尺度失配和背景吸附等失败模式。
+
+该结果还说明 Tiny 模型已经接近当前输入表征下的性能平台。若仅增加参数量，收益会受到事件表示、标注噪声和困难场景上限的约束；若改进输入侧轨迹提示，则可能在不增加 backbone 规模的条件下改善失败模式。本文选择 ATR-GTP 作为附加改进，正是基于这一性能-能耗折中：优先调整对误差链路影响较早、实现代价较低的 GTP 第三通道。
+
+\section{主要困惑}
+第一，GTP 第三通道依赖固定衰减系数 $\beta$。当目标运动连续且背景相对静止时，$h_i^3$ 提供轨迹先验；当背景存在高频闪烁、多个相似运动目标或传感器噪声时，轨迹记忆可能形成残影。该困惑指向一个可量化问题：固定 $\beta$ 对事件密度 $E_t=\mathrm{mean}(C^++C^-)$ 的鲁棒区间有多宽。
+
+第二，三通道事件图像有利于迁移视觉预训练，但固定窗口聚合压缩了窗口内部的微时间排序。事件流的原始信息量可看作 $\{(x_k,y_k,t_k,p_k)\}_{k=1}^{N}$，GTP 将其映射到 $H\times W\times3$ 的同步张量；该映射保留了极性计数和轨迹衰减，弱化了事件到达顺序。极高速运动、轨迹交叉和短时遮挡场景中，时间排序损失可能影响目标身份保持。
+
+第三，IPL 的对角拼接设计具有几何直觉，但位置关系的学习仍依赖早期卷积核覆盖范围。若 template 与 search 的空间尺度差异较大，零填充区域、卷积步幅和 patch token 化会共同影响位置传播。该问题可通过图 \ref{fig:pipeline} 中 IPL 到 SNN Conv 的链路理解：位置先验不以显式坐标向量输入模型，其信息进入可学习卷积特征并由后续 token 交互传播。
+
+第四，理论能耗公式强调 AC/MAC 差异，但普通 GPU 上的 PyTorch 张量实现未必产生真实硬件功耗下降。该困惑区分“算法级理论能耗”和“部署级实测能耗”。SDTrack 的能耗优势在神经形态芯片或稀疏推理内核上更具解释力；在 GPU 环境中，复现实验应报告运行时间、显存和理论能耗，避免把理论 mJ 直接等同于墙上功耗。
+
+第五，tracking head 最后一层保留浮点卷积，说明完全 spike 化与连续坐标回归之间存在精度张力。论文消融中 spike-driven head 与 SDTrack head 的 AUC 接近，但 PR 和定位稳定性仍受影响。该现象提示：低能耗设计不应只追求模块形式上的 spike 化，还需考察输出变量的连续性和误差传播。
+
+上述困惑共同指向一条误差传播链：事件窗口决定 $C^+$ 与 $C^-$ 的稀疏分布，轨迹通道把跨窗口变化写入 $C^{traj}$，IPL 绑定模板与搜索区域，SNN backbone 将局部触发模式压缩为 spike token，head 输出中心、尺度和偏移。输入侧场景敏感性会影响整条链路，因此成为低成本改进的优先位置。
+
+\section{问题定位与改进方案}
+本文将改进目标聚焦于 GTP 第三通道的场景敏感性。保持网络结构、权重和 head 不变，仅在输入侧对轨迹通道调权：
+\begin{equation}
+I'_t=[C_t^+,C_t^-,\beta_t C_t^{traj}].
+\end{equation}
+事件密度为
+\begin{equation}
+E_t=\mathrm{mean}(C_t^++C_t^-),
+\end{equation}
+自适应轨迹权重定义为
+\begin{equation}
+\beta_t=\mathrm{clip}\left(\beta_0\frac{\bar E}{E_t+\epsilon},\beta_{\min},\beta_{\max}\right),
+\qquad
+\tilde{\beta}_t=\lambda\tilde{\beta}_{t-1}+(1-\lambda)\beta_t.
+\end{equation}
+其中 $\beta_t$ 对应 adaptive，$\tilde{\beta}_t$ 对应 adaptive+temporal-smoothing。高事件密度通常意味着快速运动、背景扰动或噪声增加，降低 $\beta_t$ 可抑制残影；低事件密度下提高 $\beta_t$ 可增强有限轨迹线索。图 \ref{fig:atr-main} 显示了 ATR-GTP 的计算路径和控制曲线。
+
+该权重函数体现了可检验假设：轨迹记忆的最优强度应随事件密度变化。当 $E_t>\bar E$ 时降低轨迹通道贡献，减少高密度背景和快速运动残影；当 $E_t<\bar E$ 时提高历史线索权重，缓解弱事件窗口中的中心不稳定。clip 限制极端权重，指数平滑降低逐帧抖动。
+
+在未触发 clip 的区间内，自适应权重对事件密度的敏感性可写为
+\begin{equation}
+\frac{\partial \beta_t}{\partial E_t}
+=-\beta_0\frac{\bar E}{(E_t+\epsilon)^2}<0 .
+\end{equation}
+该导数说明 $\beta_t$ 与事件密度单调负相关；密度越高，轨迹通道被抑制得越强。该关系符合事件跟踪的误差诊断：高密度窗口往往包含快速运动、背景闪烁或传感器噪声，历史轨迹过强会扩大残影；低密度窗口缺少充分边缘触发，适度增强历史线索有助于维持中心连续性。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.84\linewidth]{gpt_atr_gtp_mechanism.png}
+\caption{ATR-GTP 机制与七组输入级消融。事件窗口先形成 $C^+$、$C^-$ 与 $C^{traj}$；事件密度 $E_t$ 决定自适应权重 $\beta_t$，平滑项 $\beta_s$ 降低逐帧抖动；重权重后的 $I'_t$ 输入同一 SDTrack 跟踪器。下方七组变体把轨迹通道从去除、弱化、固定、增强到自适应逐级展开，用于区分轨迹记忆的收益与残影风险。}
+\label{fig:atr-main}
+\end{figure}
+
+实验协议扩展为 baseline、zero、weak、fixed1、strong、adaptive 和 adaptive\_smooth 七组。其中 baseline 与 $\beta=1.0$ 共同保留，用于区分“报告基准”和“显式固定权重消融”；adaptive\_smooth 检验 $\beta_t$ 逐帧变化是否引入输入不稳定。该改进的优势在于复现成本低：只需批量重写 GTP 图像第三通道，再调用同一 tracker 与同一 evaluator。附录 D 在真实 GTP 样本上给出输入级统计和完整 tracker 推理消融，验证轨迹通道强度是否能够影响最终 AUC 与 PR20。
+
+七组协议形成从输入删除到输入增强的闭环验证。zero 组给出轨迹提示缺失时的下界，weak 和 strong 组刻画固定强度变化曲线，adaptive 组验证密度调权的平均收益，adaptive\_smooth 组验证时间稳定性。若 adaptive 在高事件密度属性中优于 fixed1，可支持“残影抑制”解释；若 adaptive\_smooth 在快速运动或低密度序列中更稳，则说明平滑项降低了输入扰动。该实验设计把改进方案从直觉设想推进为可复算的消融体系。
+
+\FloatBarrier
+
+\clearpage
+\nocite{*}
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\clearpage
+\appendix
+\section{附录 A：数据、环境与复现工程}
+\subsection{数据资源与校验}
+复现实验使用 FE108、VisEvent、作者公开 tracking results、官方评估标注和 SDTrack 权重。资源校验显示：FE108.zip 含 1,983,610 个条目，压缩大小 79.97 GB，解压估计 82.79 GB；VisEvent.zip 含 2,298,190 个条目，压缩大小 117.21 GB，解压估计 199.54 GB。由于两个全量数据集包含约 428 万个文件，默认复现入口先执行资源校验、官方结果包复算、绘图和报告编译；完整数据展开由
+\begin{lstlisting}[language=bash,caption={全量数据展开命令}]
+.\run_data_setup.ps1 -ExtractDatasets all
+\end{lstlisting}
+显式触发。官方评估包、tracking results 与权重均采用统一目录接口读取，checkpoint 目录为 \path{outputs/checkpoints/train/SDTrack}。
+
+\subsection{运行入口}
+\begin{lstlisting}[language=bash,caption={复现实验入口}]
+.\run_experiments.ps1                         # 环境记录 + FE108/VisEvent 官方结果包复算
+.\run_experiments.ps1 -PrepareData            # 先做数据校验和小包展开
+.\run_experiments.ps1 -PrepareData -ExtractDatasets all
+.\run_experiments.ps1 -RunOfficial            # 数据全量展开后运行 FE108 Tiny 官方推理
+.\run_figures.ps1                             # 重画全部图表，不复跑模型
+.\run_report.ps1                              # 编译 LaTeX 报告
+.\run_all.ps1 -PrepareData                    # 串联轻量复现、绘图和报告编译
+\end{lstlisting}
+环境记录写入 \path{outputs/logs/environment_report.json}，数据校验写入 \path{outputs/logs/data_setup_status.json}。官方代码固定为提交 \code{a3e4d8d}；完整哈希见日志。
+
+\subsection{本机推理证据}
+本机复现证据压缩为表 \ref{tab:local-proof}。实验环境确认 PyTorch 能访问 CUDA 设备，GPU 为 RTX 4050 Laptop；FE108 官方 Tiny 推理覆盖 32 条测试序列和 59688 帧，总耗时 3 小时 4 分 20 秒；生成的 32 个预测文件统一由 Python evaluator 计算 AUC、PR20 和 IoU。
+
+\begin{table}[H]
+\centering
+\small
+\caption{本机推理证据摘要。}
+\label{tab:local-proof}
+\begin{tabular}{lll}
+\toprule
+项目 & 结果 & 说明\\
+\midrule
+环境 & PyTorch 2.1.2+cu121，CUDA 可用 & 环境记录由 \path{environment_report.json} 保存\\
+硬件 & RTX 4050 Laptop GPU & 用于 FE108 Tiny checkpoint 推理\\
+FE108 推理 & 32 序列，59688 帧 & 官方测试入口生成 prediction 文件\\
+耗时 & 3:04:20 & 日志末尾显示全部序列完成\\
+评估闭环 & AUC 59.36\%，PR20 91.03\% & 与公开预测框复算结果高度一致\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+图 \ref{fig:dataset-real-samples} 展示 FE108 真实事件帧样例，所有图像均来自 \code{inter1_stack_3008} 输入序列。六个子图按从左到右、从上到下依次为 star\_motion、bike\_low、dog\_motion、box\_hdr、star\_mul222 和 airplane\_mul222。不同序列的可见结构差异很大：快速运动序列中事件拖尾明显，低事件密度序列中目标轮廓稀疏，高动态范围序列中局部高亮区域会产生强触发，相似目标序列则包含多个形态接近的运动结构。这些可视差异解释了为什么同一 GTP 与 SNN tracker 在不同属性上的 AUC 差异显著：输入端的信息量、噪声分布和目标可分性已经不同，后续 backbone 与 head 只能在该观测基础上完成定位。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.70\linewidth]{dataset_event_samples.png}
+\caption{FE108 真实事件帧样例。六个子图覆盖快速运动、低事件密度、形变、高动态范围、相似目标和多目标干扰等典型属性。为便于阅读，显示图像进行了对比度增强，实验指标仍由原始输入与 prediction 文件计算。}
+\label{fig:dataset-real-samples}
+\end{figure}
+
+图 \ref{fig:tracking-process-real} 将 star\_motion 序列按时间顺序抽取六帧，直接叠加真值框、本机 SDTrack-Tiny 推理框与 ATR-GTP adaptive\_smooth 推理框。红色表示真值框，蓝色表示本机 SDTrack-Tiny 推理结果，绿色表示 ATR-GTP adaptive\_smooth 推理结果。连续截图比单帧指标更容易揭示误差传播：当目标快速移动时，轨迹通道有助于维持中心连续性；若当前窗口事件残影过强，预测框会沿历史运动方向产生偏移。该图说明跟踪误差具有明显时序性，AUC 与 PR20 是对这种时序误差的整体积分。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.70\linewidth]{tracking_process_star_motion.png}
+\caption{star\_motion 序列真实推理过程截图。六帧按从左到右、从上到下排列；红色为真值框，蓝色为本机 SDTrack-Tiny 推理结果，绿色为 ATR-GTP adaptive\_smooth 推理结果。为便于观察稀疏事件结构，截图仅在可视化阶段做对比度增强。}
+\label{fig:tracking-process-real}
+\end{figure}
+
+\subsection{完整输入与输出帧序列展示}
+为进一步证明复现实验覆盖连续帧流，本文把两条代表性序列导出为完整视频证据。完整输入帧流保留每一帧 \code{inter1\_stack\_3008} 事件图像；完整输出帧流在同一时间轴上叠加真值框、本机 SDTrack-Tiny 框和 ATR-GTP adaptive\_smooth 框；ATR-GTP 输入对比帧流把原始 GTP 与改进后的 GTP 并列展示。表 \ref{tab:sequence-viz} 中的帧数与 prediction 文件逐行对应，因此视频中的每一帧都能回溯到输入图像、预测框和评价指标。
+
+\begin{table}[H]
+\centering
+\small
+\caption{完整输入、输出与 ATR-GTP 输入对比帧流产物。}
+\label{tab:sequence-viz}
+\resizebox{\linewidth}{!}{\input{outputs/tables/sequence_visualization_manifest.tex}}
+\end{table}
+
+图 \ref{fig:sequence-input-full} 从 star\_motion 的 2122 帧完整输入视频中抽取 12 个有效事件时间点。序列起始窗口的事件触发量很低，完整视频仍保留这些真实帧；报告图从事件结构稳定出现的时间段开始抽样，以便展示模型实际接收的运动轮廓。红绿蓝三种颜色来自 GTP 的正极性、负极性和轨迹记忆通道。该图比单张样例更能显示事件输入的时序性质：同一场景中的可见结构并非稳定纹理，而是随运动速度、局部遮挡和背景边缘持续变化的触发模式。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.86\linewidth]{sequence_star_motion_input_contact.png}
+\caption{star\_motion 完整输入事件帧流的有效事件段抽样。该图仅显示输入事件图像，不叠加预测框，用于观察模型实际接收的连续 GTP 图像序列。}
+\label{fig:sequence-input-full}
+\end{figure}
+
+图 \ref{fig:sequence-output-full} 在相同 12 个有效事件时间点叠加三类定位框。红色为真值框，蓝色为本机 SDTrack-Tiny 推理框，绿色为 ATR-GTP adaptive\_smooth 推理框。连续输出可以直观看到误差如何沿时间传播：在中间多帧中三类框高度接近，说明 tracker 能够利用事件轮廓和轨迹记忆维持目标锁定；在事件稀疏或快速位移的时间点，预测框会出现中心偏移或尺度响应差异。AUC、PR20 与 mean IoU 正是对这种逐帧定位质量的序列级积分。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.86\linewidth]{sequence_star_motion_output_contact.png}
+\caption{star\_motion 完整输出框序列的有效事件段抽样。红色为真值框，蓝色为本机 SDTrack-Tiny 推理框，绿色为 ATR-GTP adaptive\_smooth 推理框；对应完整视频覆盖 2122 帧。}
+\label{fig:sequence-output-full}
+\end{figure}
+
+\section{附录 B：大规模官方结果复算}
+\subsection{论文数值、公开预测框复算与本机推理对照}
+表 \ref{tab:official-repro-chain} 给出三类证据的并列比较：论文表格数值、作者公开预测框复算结果、本机从 checkpoint 运行官方测试代码得到的结果。FE108 本机推理使用全量 32 个测试序列和 59688 帧，AUC 为 59.36\%，PR20 为 91.03\%，与公开预测框复算的 59.29\%/91.04\% 高度一致，说明数据读取、checkpoint 加载、prediction 导出和 evaluator 形成闭环。VisEvent 行的公开预测框复算覆盖 172 个测试序列和 93805 帧；本机推理列用于证明跨数据集官方测试代码可运行。
+
+\begin{table}[H]
+\centering
+\small
+\caption{论文数值、公开预测框复算与本机官方推理结果对照。}
+\label{tab:official-repro-chain}
+\resizebox{\linewidth}{!}{\input{outputs/tables/official_reproduction_comparison.tex}}
+\end{table}
+
+\subsection{FE108 全量官方预测框复算}
+FE108 复算使用 15 个 tracker 的官方预测框，覆盖 32 个测试序列和 59688 帧。图 \ref{fig:fe108-rank} 显示 SDTrack-Base 与 SDTrack-Tiny 分别位列 AUC 第一、第二。Base 相对 Tiny 的 AUC 提升为 $60.15-59.29=0.86$ 个百分点，Tiny 的 PR20 为 91.04\%，略高于 Base 的 90.83\%。该现象说明 Tiny 的中心定位稳定性已经很强，Base 的收益更多体现在框重叠质量和复杂场景下的尺度控制。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\linewidth]{fe108_recomputed_auc.png}
+\caption{FE108 官方预测框独立复算 AUC 排名。红色条表示 SDTrack 系列。复算值与论文表格差异很小，主要来源于 Python evaluator 与 MATLAB 评估脚本在 absent 标记、有效帧筛选和数值显示上的实现差异。}
+\label{fig:fe108-rank}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.70\linewidth]{fe108_auc_pr_scatter.png}
+\caption{FE108 AUC-PR20 关系图。横轴强调框重叠，纵轴强调中心定位。SDTrack-Tiny 和 SDTrack-Base 位于右上区域，说明二者在重叠质量和中心精度之间保持较好平衡；ODTrack、STARK 等方法在事件场景中中心精度下降更明显。}
+\label{fig:fe108-scatter}
+\end{figure}
+
+\subsection{VisEvent 全量官方预测框复算}
+VisEvent 复算覆盖 172 个测试序列和 93805 帧，tracker 数量为 18。图 \ref{fig:visevent-rank} 中 SDTrack-Base 和 SDTrack-Tiny 仍为前两名，AUC 分别为 34.49\% 和 33.21\%。VisEvent 的绝对 AUC 低于 FE108，说明该数据集包含更多跨模态干扰、低照度和复杂背景序列。SNNTrack 的 PR20 为 44.12\%，略高于 SDTrack-Tiny 的 43.78\%，但 AUC 低于 Tiny，表明其中心位置有竞争力，目标框重叠质量仍受限。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\linewidth]{visevent_recomputed_auc.png}
+\caption{VisEvent 官方预测框独立复算 AUC 排名。该图补充了正文的 FE108 主复现结果，证明 SDTrack 在更大规模跨场景数据集上的排序依然稳定。}
+\label{fig:visevent-rank}
+\end{figure}
+
+\subsection{属性分组与失败类型}
+图 \ref{fig:attr} 将 FE108 序列按名称启发式分组。低事件密度组 AUC 为 67.73\%，PR20 为 98.60\%，表现优于总体；相似或多目标组 AUC 为 57.46\%，大型或形变目标组 AUC 为 52.02\%，失败率更高。这说明 GTP 对低照度/低事件密度并不天然脆弱，真正困难集中在相似目标干扰、形变和目标语义轮廓不稳定。图 \ref{fig:failure-type} 对本机推理中所有有效低 IoU 帧进行归因统计，低重叠定位、目标丢失/背景吸附和尺度失配占主要比例，说明失败来源同时包含轻度重叠退化与明确误锁，后续分析需要把连续小误差和灾难性漂移分开讨论。
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{fe108_attribute_auc.png}
+\caption{FE108 属性切片 AUC。}
+\label{fig:attr}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{failure_type_bar.png}
+\caption{失败类型统计。}
+\label{fig:failure-type}
+\end{subfigure}
+\caption{属性级与失败类型级分析。该组图把“总体 AUC”拆成可解释子问题：低事件密度、高动态范围、相似目标、快速运动和形变目标分别对应不同误差来源。}
+\end{figure}
+
+图 \ref{fig:failure-real-grid} 来自 evaluator 自动抽取的 worst-frame 样本，只显示真值框和 baseline 预测框。红色表示真值框，蓝色表示预测框。与人工挑选案例相比，该图更接近错误分析的自动化流程：先由 IoU 和中心误差筛出失败帧，再回到事件图像观察目标是否被背景吸附、是否存在多目标混淆或是否发生尺度响应异常。该流程把定量失败检测和可视化诊断连接起来，也为后续改进提供了可复用的误差样本池。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{failure_case_grid.png}
+\caption{FE108 worst-frame 真实截图。六个子图为 evaluator 自动筛选出的失败帧；红色为真值框，蓝色为预测框，用于辅助诊断低 IoU、中心漂移、背景吸附和尺度响应异常。图像亮度仅为显示增强。}
+\label{fig:failure-real-grid}
+\end{figure}
+
+\section{附录 C：机制图与公式逐图讲解}
+\subsection{SDTrack 原始结构总览}
+图 \ref{fig:paper-structure} 给出 SDTrack 的完整结构。该图的上半部分体现从 event streams 到 bounding box 的主路径：GTP 完成事件聚合，IPL 完成模板与搜索区域联合布置，SNN Conv 和 SNN Transformer 负责局部到全局的脉冲特征提取，Tracking Head 输出中心、尺度与偏移。中下部则展开了 GTP、SNN Conv Block、SNN Transformer Block 和 Head 的内部计算。该结构说明 SDTrack 的贡献由输入表征、位置学习、spike-driven backbone 和低能耗 head 共同构成。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\linewidth]{sdtrack_original_structure_clean.png}
+\caption{SDTrack 原始结构总览图，摘自 \citep{shan2026sdtrack}。该图用于说明方法的完整模块关系：GTP 生成事件图像，IPL 建立 template-search 几何联系，SNN backbone 提取脉冲特征，tracking head 完成连续目标框回归。}
+\label{fig:paper-structure}
+\end{figure}
+
+\subsection{I-LIF 神经元}
+图 \ref{fig:ilif} 描述 I-LIF 神经元的积分、触发和重置。统一神经元模型可写为
+\begin{align}
+U[t]&=H[t-1]+\frac{1}{\tau}(X[t]-(H[t-1]-U_{reset})),\\
+S[t]&=f(U[t]-U_{threshold}),\\
+H[t]&=U[t](1-S[t]).
+\end{align}
+其中 $U[t]$ 为膜电位，$S[t]$ 为输出 spike，$H[t]$ 为发放后的残余膜电位。I-LIF 使用 spike-ahead 思想把连续膜电位转为有限虚拟时间步下的 spike 信号，使大部分中间特征可以由 0/1 spike 表示。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\linewidth]{gpt_ilif_mechanism.png}
+\caption{I-LIF 神经元动力学机制图。输入电流经泄漏积分形成膜电位，超过阈值后产生 spike 并触发重置；下方稀疏脉冲序列进入 SNN Conv、SNN Transformer 和 Head。该图强调 spike 表示的核心收益来自事件驱动激活与稀疏传播。}
+\label{fig:ilif}
+\end{figure}
+
+\subsection{IPL 与 SNN Attention}
+图 \ref{fig:ipl-attn} 左侧的 IPL 对角拼接把 template 与 search 放入统一矩阵，零填充区起到几何分隔作用。右侧 SNN attention 保留 Transformer 的相关性计算形式，但输入 token 来自 spike 特征。二者共同解决事件跟踪中的两个问题：IPL 处理相对位置，attention 处理目标相关性。若缺少 IPL，模板与搜索区域的相对布局需要依赖后续 token 交互间接恢复；若缺少 SSA，高层特征难以建立目标相关的长程依赖。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{gpt_ipl_ssa_mechanism.png}
+\caption{位置关系与 token 交互机制。IPL 通过 $U=[[X,O_1],[O_2,Z]]$ 将 search 与 template 放入同一空间矩阵，使早期卷积学习相对几何结构；SSA 通过 $Q_sK_s^\top V_s$ 在 spike token 间建立目标相关特征交互，并由 MLP 与 residual 路径输出目标特征。}
+\label{fig:ipl-attn}
+\end{figure}
+
+\subsection{能耗公式与气泡图}
+图 \ref{fig:energy} 给出理论能耗核算机制。ANN 卷积中的 MAC 需要浮点乘法和加法，参考能耗为 4.6 pJ；SNN 中 spike 与权重的作用可转化为 AC，参考能耗为 0.9 pJ。SDTrack 的能耗优势来自三项因素：一是大部分中间特征为二值 spike，二是 firing rate 控制实际激活比例，三是 attention 模块在保持相关性建模的同时减少稠密乘加路径。该结论属于理论能耗估计，真实部署功耗还取决于硬件是否原生支持稀疏事件计算。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{gpt_energy_mechanism.png}
+\caption{理论能耗分析机制图。左侧比较 ANN 卷积的 MAC 与 SNN 脉冲路径的 AC；右上角分解 SNN Conv、SNN Transformer 和 Tracking Head 的理论能耗项；下方用精度-能耗-参数量关系说明 SDTrack 系列位于低能耗、高精度区域。}
+\label{fig:energy}
+\end{figure}
+
+\section{附录 D：ATR-GTP 实现、实验与消融分析}
+\thispagestyle{plain}
+ATR-GTP 输入三通道 GTP 图像目录，输出七种变体目录，并保存每张图像的事件密度、参考密度和实际 $\beta$。其核心操作只作用于第三通道：
+\begin{equation}
+I'_t=[C_t^+,C_t^-,\gamma_t C_t^{traj}],\qquad
+\gamma_t\in\{0,0.5,1.0,1.5,\beta_t,\tilde{\beta}_t\}.
+\end{equation}
+其中 fixed 组用常数 $\gamma_t$，adaptive 组使用事件密度驱动的 $\beta_t$，adaptive\_smooth 组使用 $\tilde{\beta}_t$。该设计保留网络结构、权重和跟踪头，使输入扰动成为唯一实验变量。图 \ref{fig:atr-protocol} 给出完整机制、七组变体和实验分支。
+
+实现层面首先读取每张三通道 GTP 图像，将其归一化到 $[0,1]$ 后计算事件密度 $E_t=\mathrm{mean}(C_t^++C_t^-)$，再以序列平均密度 $\bar E$ 作为参考尺度。固定组仅对第三通道做线性缩放；adaptive 组根据 $E_t$ 逐帧产生 $\beta_t$；adaptive\_smooth 组在时间维度上引入一阶递推，避免相邻帧事件密度突变导致输入幅值剧烈跳变。由于正负事件通道完全保持不变，实验能够隔离轨迹记忆强度对跟踪结果的影响。
+
+七组消融覆盖了从“无轨迹记忆”到“过强轨迹记忆”的完整区间。zero 组用于估计 $C^{traj}$ 对中心稳定性的下限贡献；weak 组检验弱轨迹提示是否足以保留运动方向；fixed1 与 baseline 用于确认显式实现不会改变原始输入；strong 组用于暴露残影和背景误吸附风险；adaptive 与 adaptive\_smooth 组检验事件密度调权和时间平滑是否能够在弱事件窗口与高事件密度窗口之间取得更稳健的折中。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{gpt_atr_gtp_mechanism.png}
+\caption{ATR-GTP 改进机制与七组消融。zero 组验证轨迹通道必要性，weak/strong 组测试轨迹强度变化，adaptive 组验证事件密度驱动调权，adaptive\_smooth 组验证时间平滑对输入稳定性的影响。}
+\label{fig:atr-protocol}
+\end{figure}
+
+在输入级实验中，从 FE108 的 star\_motion 序列抽取 80 张真实 GTP 图像，执行七组变体，共得到 560 条变换记录。事件密度均值为 0.1246。表 \ref{tab:atr-stats} 给出 $\beta$ 统计量和轨迹通道能量代理项。由于第三通道被线性缩放，若近似认为该通道对后续激活强度的贡献与幅值平方成正比，则可用
+\begin{equation}
+R_{\mathrm{traj}}=\frac{\mathbb{E}[\gamma_t^2]}{\mathbb{E}[1^2]}
+\end{equation}
+衡量轨迹通道相对于 baseline 的能量代理变化。zero 组将该代理项降为 0，weak 组降为 0.25，strong 组升至 2.25。adaptive 与 adaptive\_smooth 的均值接近 1，但后者的标准差从 0.172 降到 0.107，说明时间平滑能够降低逐帧输入权重抖动。
+
+表 \ref{tab:atr-stats} 的关键结论有三点。首先，zero 与 weak 组构成轨迹信息削弱实验，能够观察缺少历史线索时中心热图是否更易被当前窗口噪声牵引。其次，strong 组的 $R_{\mathrm{traj}}=2.25$ 明显高于 baseline，若完整跟踪中出现 IoU 下降，可将其解释为轨迹残留过强导致的目标框扩张或背景吸附。第三，adaptive 与 adaptive\_smooth 的平均能量代理接近 baseline，说明该改进没有简单地通过整体增强第三通道获得收益；其主要作用是根据事件密度重新分配帧间权重。方差下降可写为
+\begin{equation}
+\rho_{\mathrm{smooth}}=1-\frac{\mathrm{std}(\tilde{\beta}_t)}{\mathrm{std}(\beta_t)}
+=1-\frac{0.107}{0.172}\approx37.8\%.
+\end{equation}
+该数值表示时间平滑在保持平均轨迹强度的同时显著降低了输入控制量的抖动幅度，适合事件密度快速变化的序列。
+
+\begin{table}[H]
+\centering
+\small
+\caption{ATR-GTP 在真实 GTP 样本上的输入级消融统计。}
+\label{tab:atr-stats}
+\begin{tabular}{lrrrr}
+\toprule
+变体 & 帧数 & $\bar{\gamma}$ & $\mathrm{std}(\gamma)$ & $R_{\mathrm{traj}}$\\
+\midrule
+baseline & 80 & 1.000 & 0.000 & 1.000\\
+zero & 80 & 0.000 & 0.000 & 0.000\\
+weak & 80 & 0.500 & 0.000 & 0.250\\
+fixed1 & 80 & 1.000 & 0.000 & 1.000\\
+strong & 80 & 1.500 & 0.000 & 2.250\\
+adaptive & 80 & 1.035 & 0.172 & 1.070\\
+adaptive\_smooth & 80 & 1.039 & 0.107 & 1.079\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.74\linewidth]{atr_gtp_transform_stats.png}
+\caption{ATR-GTP 输入级实验统计图。左图给出七组 $\gamma_t$ 均值和波动范围，右图给出轨迹通道能量代理项。该图说明 adaptive\_smooth 在保持平均轨迹强度接近 adaptive 的同时降低了权重方差，适合作为高事件密度波动场景下的稳健变体。}
+\label{fig:atr-transform-stats}
+\end{figure}
+
+图 \ref{fig:atr-transform-stats} 与表 \ref{tab:atr-stats} 互为补充。柱状图左半部分强调权重本身的数值变化，能够直接看到 fixed 组没有帧间波动，而 adaptive 组存在随密度变化的误差棒；右半部分强调轨迹通道可能带来的激活强度变化，能够直观看出 strong 组的潜在代价。若后续完整推理中 adaptive\_smooth 的 AUC 高于 adaptive，可将提升归因于输入稳定性增加；若二者 AUC 接近，则说明当前样本中事件密度变化尚未强到需要平滑项。该判别逻辑使附加实验具备可解释性，并可支撑机制层面的结果分析。
+
+\subsection{完整 tracker 推理消融}
+完整 tracker 推理实验选择 FE108 中 5 条代表性序列，覆盖快速运动、低事件密度、高动态范围以及相似/多目标干扰。实验对七组 GTP 变体分别调用同一 SDTrack-Tiny checkpoint 和同一官方测试入口，共处理 10184 帧。评价阶段使用同一 Python evaluator，指标为 AUC、PR20、NP@0.2、mean IoU 和中心误差。该实验与输入级统计的关系是：输入级统计证明 $\gamma_t$ 的控制行为，完整推理实验检验控制行为是否能传递到目标框预测。归一化精度采用
+\[
+\mathrm{NP@0.2}=\frac{1}{T}\sum_{t=1}^{T}\mathbb{I}\left(
+\frac{\|c_t^{pred}-c_t^{gt}\|_2}{\sqrt{w_t^{gt}h_t^{gt}}}\le0.2\right),
+\]
+用于消除不同目标尺度对中心误差阈值的影响。
+
+\begin{table}[H]
+\centering
+\small
+\caption{ATR-GTP 完整 tracker 推理使用的 5 条 FE108 代表性序列。}
+\label{tab:atr-sequences}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lll}
+\toprule
+序列 & 属性覆盖 & 选择原因\\
+\midrule
+star\_motion & 快速运动、轨迹残影 & 输入级实验主序列，检验轨迹通道在快速运动下的连续定位作用\\
+bike\_low & 低事件密度、弱纹理 & 检验事件线索稀疏时第三通道是否提供额外时序记忆\\
+dog\_motion & 快速运动、形变目标 & 检验运动模糊和目标形变共同出现时的定位框稳定性\\
+box\_hdr & 高动态范围、小刚体 & 检验亮度剧变和刚体轮廓对 AUC、PR20 的影响\\
+star\_mul222 & 相似/多目标干扰 & 检验相似事件结构下轨迹记忆是否引入误吸附风险\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\caption{ATR-GTP 七组完整 tracker 推理结果。AUC、PR20、NP@0.2 和 mean IoU 均以百分比显示，$\Delta$ 表示相对 baseline 的百分点变化。}
+\label{tab:atr-tracker}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrrrr}
+\toprule
+变体 & 序列数 & 帧数 & AUC & PR20 & NP@0.2 & mean IoU & $\Delta$AUC & $\Delta$PR20\\
+\midrule
+baseline & 5 & 10184 & 60.88 & 91.87 & 66.41 & 60.95 & 0.00 & 0.00\\
+zero & 5 & 10184 & 50.57 & 77.13 & 54.18 & 50.49 & -10.31 & -14.74\\
+weak & 5 & 10184 & 61.46 & 91.89 & 67.63 & 61.54 & +0.58 & +0.02\\
+fixed1 & 5 & 10184 & 60.88 & 91.87 & 66.41 & 60.95 & 0.00 & 0.00\\
+strong & 5 & 10184 & 60.57 & 92.10 & 64.86 & 60.64 & -0.31 & +0.23\\
+adaptive & 5 & 10184 & 61.13 & 91.92 & 66.53 & 61.22 & +0.25 & +0.05\\
+adaptive\_smooth & 5 & 10184 & 61.38 & 92.63 & 66.44 & 61.46 & +0.50 & +0.76\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+表 \ref{tab:atr-tracker} 给出完整推理后的核心结论。zero 组 AUC 下降 10.31 个百分点、PR20 下降 14.74 个百分点、NP@0.2 下降 12.23 个百分点，说明第三通道轨迹记忆参与了最终定位，输入级变换已经传递到目标框预测。weak 组 AUC 提升 0.58 个百分点、NP@0.2 提升 1.22 个百分点，说明在该 5 序列集合中适度减弱轨迹记忆能够降低部分残影影响；strong 组 PR20 提升 0.23 个百分点，但 AUC 和 NP@0.2 分别下降 0.31 与 1.55 个百分点，说明中心可能更稳定，尺度归一化后的定位质量受到过强轨迹幅值影响。adaptive 组 AUC 提升 0.25 个百分点，adaptive\_smooth 组 AUC 提升 0.50 个百分点、PR20 提升 0.76 个百分点，并把平均中心误差从 14.76 px 降到 14.48 px。该结果与输入级方差下降相互支撑：时间平滑降低了 $\beta_t$ 的帧间抖动，最终表现为中心精度和 IoU 的小幅稳定提升。上述结果是 5 条代表性序列的机制验证，不作为全量 SOTA 声明。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.68\linewidth]{atr_gtp_tracker_bar.png}
+\caption{ATR-GTP 七组完整推理 AUC/PR20 对比。zero 组明显低于其他组，证明轨迹通道对跟踪器输出有直接影响；adaptive\_smooth 在 PR20 上最高，表明平滑后的轨迹权重更有利于中心定位稳定。}
+\label{fig:atr-tracker-bar}
+\end{figure}
+
+图 \ref{fig:atr-tracker-bar} 将表格中的数值转化为直观柱状比较。AUC 柱强调框重叠质量，PR20 柱强调中心定位。zero 组的两项指标同时下降，说明去掉轨迹通道会破坏中心热图与尺度回归的共同约束。weak、adaptive 和 adaptive\_smooth 的 AUC 均高于 baseline，说明轨迹通道的最优强度在部分序列中低于固定权重。strong 的 PR20 较高但 AUC 略低，提示中心位置与目标框尺寸并不完全同步；过强轨迹记忆可能维持中心连续性，同时引入框重叠损失。
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{atr_gtp_sequence_heatmap.png}
+\caption{五条序列的逐变体 AUC 热力图。}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\linewidth}
+\centering
+\includegraphics[width=\linewidth]{atr_gtp_iou_curve.png}
+\caption{star\_motion 序列 25 帧滑动平均 IoU 曲线。}
+\end{subfigure}
+\caption{ATR-GTP 完整推理的序列级诊断。热力图显示不同变体的收益具有场景依赖性；IoU 曲线显示 zero 组在快速运动序列中长期低于其他组，说明轨迹通道对连续定位具有关键作用。}
+\label{fig:atr-seq-diagnosis}
+\end{figure}
+
+图 \ref{fig:atr-seq-diagnosis} 进一步解释表 \ref{tab:atr-tracker} 的平均值来源。热力图中 dog\_motion 和 box\_hdr 的 AUC 整体较高，star\_mul222 最低，说明相似目标干扰比低照度或单纯快速运动更难处理。zero 组在 star\_motion 上 AUC 仅 19.0\%，但在 bike\_low 和 box\_hdr 上接近或略高于 baseline，说明轨迹记忆的必要性与场景运动结构密切相关。IoU 曲线展示了快速运动序列中的时间稳定性差异：zero 组多次跌至低 IoU 区间，baseline、weak、adaptive 和 adaptive\_smooth 大多维持在 0.5--0.8 之间。adaptive\_smooth 与 adaptive 曲线接近但更平滑，符合输入级 $\beta$ 方差下降的观察。
+
+图 \ref{fig:atr-input-full} 给出 ATR-GTP 作用在输入端的可视证据。上排为原始 GTP 输入，下排为 adaptive\_smooth 变体输入，六列从有效事件段抽样。改进并未改变事件图像的空间尺寸和前两类极性结构，而是通过 $\tilde{\beta}_t$ 调整轨迹记忆通道：低事件阶段保留较弱历史线索，高事件阶段抑制过强残影。该图与图 \ref{fig:sequence-output-full} 形成前后对应关系：输入端的轨迹强度变化经过同一 SDTrack-Tiny tracker 后，转化为输出框序列中的中心稳定性差异。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.84\linewidth]{sequence_star_motion_atr_input_compare.png}
+\caption{star\_motion 的 ATR-GTP 输入对比帧流有效事件段抽样。上排为原始 GTP 输入，下排为 adaptive\_smooth 输入；对应完整对比视频覆盖 2122 帧。}
+\label{fig:atr-input-full}
+\end{figure}
+
+图 \ref{fig:atr-real-cases} 给出 ATR-GTP 完整 tracker 推理的真实截图证据。六个子图按从左到右、从上到下依次为 dog\_motion、box\_hdr、bike\_low、star\_motion、star\_mul222 和 box\_hdr；前三个为高 IoU 成功样例，后三个为快速运动、相似目标干扰和尺度响应偏差样例。红色表示真值框，蓝色表示 baseline，绿色表示 adaptive\_smooth。成功样例中蓝色与绿色框均能覆盖目标主体，说明 GTP 的正负极性通道和轨迹通道提供了足够稳定的运动证据；失败样例中，绿色框在 star\_motion 中明显更接近真值，说明平滑后的轨迹权重能改善快速运动下的中心稳定性。在相似目标或严重尺度变化下，绿色框并未总是优于 baseline，说明仅修改第三通道仍受 head 回归能力和目标可分性的制约。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\linewidth]{real_tracking_cases.png}
+\caption{ATR-GTP 完整 tracker 推理真实截图。红色为真值框，蓝色为 baseline，绿色为 adaptive\_smooth；该图用于展示改进方案在成功样例和失败样例中的实际定位效果。图像亮度仅为显示增强，定位框和指标来自实际推理结果。}
+\label{fig:atr-real-cases}
+\end{figure}
+
+该改进仍有明确适用范围。ATR-GTP 只改变 GTP 第三通道，不改变 backbone 表征容量，也不直接修改 head 的尺度回归能力。因此，当失败来源主要是严重遮挡、目标外观相似或局部事件密度与背景密度无法区分时，全局事件密度 $\beta_t$ 的作用会受限。后续可把 $E_t$ 扩展为目标邻域密度、模板响应加权密度或 attention-guided density，使轨迹权重更贴近目标局部运动状态。
+
+\section{附录 E：案例诊断与误差归因}
+\thispagestyle{plain}
+图 \ref{fig:cases} 给出六类典型成功/失败模式的机制归因示意。红色框表示真值，蓝色框表示 baseline，绿色框表示 ATR-GTP。成功样例中三类框高度重合，IoU 曲线保持稳定；中心漂移和背景吸附表现为 baseline IoU 持续下降；尺度失配说明中心定位可能仍然正确，但定位框尺寸估计不足；快速运动与低事件密度样例分别对应轨迹残影和事件线索稀疏。该图把定量指标拆解为机制级误差来源：GTP 影响轨迹记忆，IPL 影响位置对齐，SSA 影响目标相关性，Head 影响连续目标框回归，$\beta$ 控制轨迹通道强度。与附录 A、B、D 的真实截图不同，本图只用于概括误差类型之间的机制关系。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\linewidth]{gpt_case_diagnosis.png}
+\caption{成功与失败案例诊断示意图。每个子图包含事件点云、三类定位框和 IoU 曲线，用于将中心漂移、尺度失配、背景吸附、快速运动和低事件密度分别映射到 GTP、IPL、SSA、Head 与 $\beta$ 控制机制。}
+\label{fig:cases}
+\end{figure}
+
+\end{document}

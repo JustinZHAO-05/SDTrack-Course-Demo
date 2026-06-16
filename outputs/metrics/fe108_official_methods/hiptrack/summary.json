@@ -1,0 +1,12 @@
+{
+  "tracker": "hiptrack",
+  "sequences": 32,
+  "frames": 59688,
+  "auc_micro": 0.5040778052473522,
+  "pr20_micro": 0.7955200375284814,
+  "auc_sequence_weighted": 0.5040778052473524,
+  "pr20_sequence_weighted": 0.7955200375284814,
+  "mean_iou": 0.5033494462291453,
+  "mean_center_error": 854.8150835336219,
+  "absent_filter": true
+}

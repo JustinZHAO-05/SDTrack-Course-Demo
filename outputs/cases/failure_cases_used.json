@@ -1,0 +1,382 @@
+[
+  {
+    "sequence": "giraffe_low",
+    "frame_index": 1327,
+    "iou": 0.0,
+    "center_error": 17512934.82151957,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      146.0,
+      119.0,
+      28.0,
+      29.0
+    ],
+    "gt_xywh": [
+      -10846155.436,
+      13750054.5,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sequence": "giraffe_low",
+    "frame_index": 1326,
+    "iou": 0.0,
+    "center_error": 16221865.125164926,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      142.0,
+      123.0,
+      30.0,
+      27.0
+    ],
+    "gt_xywh": [
+      -10049234.868,
+      12734288.66,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sequence": "giraffe_low",
+    "frame_index": 10,
+    "iou": 0.0,
+    "center_error": 15689520.314108424,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      91.0,
+      94.0,
+      15.0,
+      40.0
+    ],
+    "gt_xywh": [
+      -9469141.496,
+      12509891.839,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sequence": "giraffe_motion",
+    "frame_index": 531,
+    "iou": 0.0,
+    "center_error": 230.10704030950467,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      47.0,
+      242.0,
+      33.0,
+      17.0
+    ],
+    "gt_xywh": [
+      261.0,
+      123.0,
+      19.0,
+      54.0
+    ]
+  },
+  {
+    "sequence": "elephant222",
+    "frame_index": 812,
+    "iou": 0.0,
+    "center_error": 221.94330282598648,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      27.0,
+      90.0,
+      21.0,
+      28.0
+    ],
+    "gt_xywh": [
+      241.516,
+      138.318,
+      22.262,
+      40.369
+    ]
+  },
+  {
+    "sequence": "giraffe_motion",
+    "frame_index": 530,
+    "iou": 0.0,
+    "center_error": 221.15266220418872,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      42.0,
+      243.0,
+      42.0,
+      16.0
+    ],
+    "gt_xywh": [
+      252.0,
+      127.0,
+      19.0,
+      53.0
+    ]
+  },
+  {
+    "sequence": "giraffe_motion",
+    "frame_index": 532,
+    "iou": 0.0,
+    "center_error": 212.5323504786977,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      67.0,
+      220.0,
+      27.0,
+      28.0
+    ],
+    "gt_xywh": [
+      264.0,
+      118.0,
+      19.0,
+      54.0
+    ]
+  },
+  {
+    "sequence": "star_mul222",
+    "frame_index": 920,
+    "iou": 0.0,
+    "center_error": 201.75980257394573,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      84.0,
+      111.0,
+      13.0,
+      33.0
+    ],
+    "gt_xywh": [
+      271.355,
+      63.574,
+      33.371,
+      45.754
+    ]
+  },
+  {
+    "sequence": "giraffe_motion",
+    "frame_index": 529,
+    "iou": 0.0,
+    "center_error": 199.16387724685418,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      43.0,
+      220.0,
+      44.0,
+      39.0
+    ],
+    "gt_xywh": [
+      237.0,
+      131.0,
+      19.0,
+      53.0
+    ]
+  },
+  {
+    "sequence": "whale_mul222",
+    "frame_index": 1945,
+    "iou": 0.0,
+    "center_error": 184.21556384952075,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      95.0,
+      94.0,
+      17.0,
+      40.0
+    ],
+    "gt_xywh": [
+      265.4,
+      44.505,
+      41.035,
+      87.641
+    ]
+  },
+  {
+    "sequence": "giraffe_motion",
+    "frame_index": 528,
+    "iou": 0.0,
+    "center_error": 182.72178304734223,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      45.0,
+      219.0,
+      43.0,
+      36.0
+    ],
+    "gt_xywh": [
+      222.0,
+      132.0,
+      19.0,
+      53.0
+    ]
+  },
+  {
+    "sequence": "giraffe_motion",
+    "frame_index": 527,
+    "iou": 0.0,
+    "center_error": 180.8991431709946,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      38.0,
+      226.0,
+      42.0,
+      28.0
+    ],
+    "gt_xywh": [
+      211.0,
+      132.0,
+      19.0,
+      53.0
+    ]
+  },
+  {
+    "sequence": "whale_mul222",
+    "frame_index": 1946,
+    "iou": 0.0,
+    "center_error": 180.64401463824075,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      89.0,
+      93.0,
+      21.0,
+      42.0
+    ],
+    "gt_xywh": [
+      256.275,
+      45.237,
+      44.221,
+      87.231
+    ]
+  },
+  {
+    "sequence": "whale_mul222",
+    "frame_index": 1947,
+    "iou": 0.0,
+    "center_error": 176.6096529017109,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      84.0,
+      93.0,
+      22.0,
+      38.0
+    ],
+    "gt_xywh": [
+      245.869,
+      46.901,
+      48.718,
+      86.096
+    ]
+  },
+  {
+    "sequence": "whale_mul222",
+    "frame_index": 1948,
+    "iou": 0.0,
+    "center_error": 172.74377141815336,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      79.0,
+      91.0,
+      21.0,
+      38.0
+    ],
+    "gt_xywh": [
+      234.212,
+      49.485,
+      54.074,
+      84.016
+    ]
+  },
+  {
+    "sequence": "fighter_mul",
+    "frame_index": 417,
+    "iou": 0.0,
+    "center_error": 170.1438758116529,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      233.0,
+      162.0,
+      40.0,
+      17.0
+    ],
+    "gt_xywh": [
+      75.123,
+      117.226,
+      25.453,
+      24.714
+    ]
+  },
+  {
+    "sequence": "giraffe_motion",
+    "frame_index": 525,
+    "iou": 0.0,
+    "center_error": 167.2617708862369,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      35.0,
+      226.0,
+      33.0,
+      31.0
+    ],
+    "gt_xywh": [
+      189.0,
+      133.0,
+      16.0,
+      52.0
+    ]
+  },
+  {
+    "sequence": "cow_mul222",
+    "frame_index": 303,
+    "iou": 0.0,
+    "center_error": 166.80169503545588,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      191.0,
+      80.0,
+      18.0,
+      28.0
+    ],
+    "gt_xywh": [
+      16.664,
+      119.278,
+      66.463,
+      94.93
+    ]
+  },
+  {
+    "sequence": "fighter_mul",
+    "frame_index": 416,
+    "iou": 0.0,
+    "center_error": 166.3564975360965,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      230.0,
+      161.0,
+      34.0,
+      16.0
+    ],
+    "gt_xywh": [
+      74.188,
+      115.719,
+      22.792,
+      26.076
+    ]
+  },
+  {
+    "sequence": "whale_mul222",
+    "frame_index": 1949,
+    "iou": 0.0,
+    "center_error": 166.0916846213467,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      75.0,
+      91.0,
+      22.0,
+      36.0
+    ],
+    "gt_xywh": [
+      221.17,
+      53.464,
+      60.474,
+      80.942
+    ]
+  }
+]

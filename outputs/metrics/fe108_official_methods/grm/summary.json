@@ -1,0 +1,12 @@
+{
+  "tracker": "grm",
+  "sequences": 32,
+  "frames": 59688,
+  "auc_micro": 0.5678966268158783,
+  "pr20_micro": 0.8841308135638655,
+  "auc_sequence_weighted": 0.5678966268158784,
+  "pr20_sequence_weighted": 0.8841308135638655,
+  "mean_iou": 0.568156364483691,
+  "mean_center_error": 845.3956626715441,
+  "absent_filter": true
+}

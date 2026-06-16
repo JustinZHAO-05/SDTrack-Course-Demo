@@ -1,0 +1,2 @@
+﻿attribute,sequences,frames,auc_weighted,pr20_weighted,mean_failure_rate_iou_010
+all,5,3071,0.16412881926421233,0.3132530120481928,0.6584174535981765

@@ -1,0 +1,952 @@
+[
+  {
+    "sequence": "00510_person_outdoor6",
+    "frame_index": 46,
+    "iou": 0.0,
+    "center_error": 328.9327761653435,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      36.0,
+      29.0,
+      84.0
+    ],
+    "gt_xywh": [
+      317.816,
+      90.085,
+      28.184,
+      148.445
+    ]
+  },
+  {
+    "sequence": "00508_person_outdoor6",
+    "frame_index": 40,
+    "iou": 0.0,
+    "center_error": 321.7270496473447,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      312.0,
+      87.0,
+      33.0,
+      118.0
+    ],
+    "gt_xywh": [
+      0.0,
+      79.199,
+      16.638,
+      70.594
+    ]
+  },
+  {
+    "sequence": "00510_person_outdoor6",
+    "frame_index": 47,
+    "iou": 0.0,
+    "center_error": 315.6459259547396,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      1.0,
+      13.0,
+      36.0,
+      104.0
+    ],
+    "gt_xywh": [
+      292.745,
+      84.147,
+      53.255,
+      155.702
+    ]
+  },
+  {
+    "sequence": "00147_tank_outdoor2",
+    "frame_index": 66,
+    "iou": 0.0,
+    "center_error": 315.0294154709763,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      63.0,
+      61.0,
+      70.0
+    ],
+    "gt_xywh": [
+      316.874,
+      161.302,
+      29.126,
+      59.732
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 772,
+    "iou": 0.0,
+    "center_error": 311.83474170672514,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      119.0,
+      18.0,
+      47.0
+    ],
+    "gt_xywh": [
+      308.24,
+      118.832,
+      25.18,
+      43.862
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 672,
+    "iou": 0.0,
+    "center_error": 309.6559206717231,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      5.0,
+      97.0,
+      32.0,
+      58.0
+    ],
+    "gt_xywh": [
+      318.134,
+      114.974,
+      24.749,
+      41.189
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 671,
+    "iou": 0.0,
+    "center_error": 307.56422352690015,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      5.0,
+      95.0,
+      29.0,
+      64.0
+    ],
+    "gt_xywh": [
+      315.521,
+      115.538,
+      22.859,
+      39.654
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_49_51_personBasketball",
+    "frame_index": 131,
+    "iou": 0.0,
+    "center_error": 306.0910293015789,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      3.0,
+      106.0,
+      31.0,
+      109.0
+    ],
+    "gt_xywh": [
+      302.312,
+      69.632,
+      43.688,
+      149.104
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 670,
+    "iou": 0.0,
+    "center_error": 305.4437947083309,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      5.0,
+      99.0,
+      25.0,
+      60.0
+    ],
+    "gt_xywh": [
+      309.793,
+      115.411,
+      26.146,
+      40.924
+    ]
+  },
+  {
+    "sequence": "00510_person_outdoor6",
+    "frame_index": 48,
+    "iou": 0.0,
+    "center_error": 305.08156872709054,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      39.0,
+      37.0,
+      76.0
+    ],
+    "gt_xywh": [
+      278.231,
+      78.539,
+      67.769,
+      162.629
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 668,
+    "iou": 0.0,
+    "center_error": 303.4640468131027,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      93.0,
+      23.0,
+      72.0
+    ],
+    "gt_xywh": [
+      302.312,
+      117.135,
+      25.071,
+      40.575
+    ]
+  },
+  {
+    "sequence": "00508_person_outdoor6",
+    "frame_index": 38,
+    "iou": 0.0,
+    "center_error": 303.4531699754387,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      319.0,
+      93.0,
+      25.0,
+      108.0
+    ],
+    "gt_xywh": [
+      0.0,
+      70.622,
+      56.224,
+      140.198
+    ]
+  },
+  {
+    "sequence": "00147_tank_outdoor2",
+    "frame_index": 71,
+    "iou": 0.0,
+    "center_error": 302.70087449283164,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      40.0,
+      0.0,
+      23.0,
+      10.0
+    ],
+    "gt_xywh": [
+      266.332,
+      115.067,
+      79.668,
+      107.116
+    ]
+  },
+  {
+    "sequence": "00147_tank_outdoor2",
+    "frame_index": 70,
+    "iou": 0.0,
+    "center_error": 302.63130155390405,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      47.0,
+      0.0,
+      24.0,
+      10.0
+    ],
+    "gt_xywh": [
+      276.67,
+      122.534,
+      69.33,
+      99.075
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 669,
+    "iou": 0.0,
+    "center_error": 302.00423463558417,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      4.0,
+      81.0,
+      27.0,
+      58.0
+    ],
+    "gt_xywh": [
+      306.383,
+      116.358,
+      23.872,
+      40.735
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 667,
+    "iou": 0.0,
+    "center_error": 301.9481912262185,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      92.0,
+      19.0,
+      78.0
+    ],
+    "gt_xywh": [
+      298.683,
+      116.475,
+      25.4,
+      41.564
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_10_14_18_chicken",
+    "frame_index": 617,
+    "iou": 0.0,
+    "center_error": 299.6332195211756,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      1.0,
+      183.0,
+      11.0,
+      35.0
+    ],
+    "gt_xywh": [
+      294.482,
+      182.5,
+      23.128,
+      21.562
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_10_14_18_chicken",
+    "frame_index": 618,
+    "iou": 0.0,
+    "center_error": 297.9087437418798,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      202.0,
+      10.0,
+      30.0
+    ],
+    "gt_xywh": [
+      288.857,
+      172.812,
+      24.69,
+      24.688
+    ]
+  },
+  {
+    "sequence": "tennis_long_001",
+    "frame_index": 649,
+    "iou": 0.0,
+    "center_error": 297.64311849650585,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      305.0,
+      116.0,
+      21.0,
+      41.0
+    ],
+    "gt_xywh": [
+      9.128,
+      114.267,
+      17.501,
+      37.3
+    ]
+  },
+  {
+    "sequence": "00430_UAV_outdoor6",
+    "frame_index": 34,
+    "iou": 0.0,
+    "center_error": 294.3524136440026,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      137.0,
+      18.0,
+      122.0
+    ],
+    "gt_xywh": [
+      178.169,
+      0.0,
+      110.562,
+      15.13
+    ]
+  },
+  {
+    "sequence": "00147_tank_outdoor2",
+    "frame_index": 73,
+    "iou": 0.0,
+    "center_error": 293.3124507220329,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      40.0,
+      0.0,
+      25.0,
+      10.0
+    ],
+    "gt_xywh": [
+      244.506,
+      115.928,
+      101.494,
+      107.403
+    ]
+  },
+  {
+    "sequence": "00147_tank_outdoor2",
+    "frame_index": 67,
+    "iou": 0.0,
+    "center_error": 291.4324424206106,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      51.0,
+      0.0,
+      90.0,
+      11.0
+    ],
+    "gt_xywh": [
+      309.408,
+      141.774,
+      36.592,
+      80.983
+    ]
+  },
+  {
+    "sequence": "00508_person_outdoor6",
+    "frame_index": 37,
+    "iou": 0.0,
+    "center_error": 287.514635634936,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      318.0,
+      100.0,
+      25.0,
+      98.0
+    ],
+    "gt_xywh": [
+      10.041,
+      72.931,
+      65.975,
+      142.177
+    ]
+  },
+  {
+    "sequence": "00147_tank_outdoor2",
+    "frame_index": 72,
+    "iou": 0.0,
+    "center_error": 281.1031416371578,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      60.0,
+      0.0,
+      23.0,
+      10.0
+    ],
+    "gt_xywh": [
+      254.558,
+      115.354,
+      91.442,
+      105.967
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_10_14_18_chicken",
+    "frame_index": 620,
+    "iou": 0.0,
+    "center_error": 279.8118971961342,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      207.0,
+      20.0,
+      40.0
+    ],
+    "gt_xywh": [
+      272.917,
+      163.438,
+      23.44,
+      20.0
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 664,
+    "iou": 0.0,
+    "center_error": 278.5700260594497,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      13.0,
+      54.0,
+      29.0,
+      74.0
+    ],
+    "gt_xywh": [
+      289.117,
+      117.465,
+      26.06,
+      40.245
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_10_14_18_chicken",
+    "frame_index": 619,
+    "iou": 0.0,
+    "center_error": 278.5099380666514,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      1.0,
+      182.0,
+      25.0,
+      28.0
+    ],
+    "gt_xywh": [
+      278.23,
+      166.562,
+      26.566,
+      25.625
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_10_14_18_chicken",
+    "frame_index": 621,
+    "iou": 0.0,
+    "center_error": 277.5446239623639,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      221.0,
+      19.0,
+      38.0
+    ],
+    "gt_xywh": [
+      264.792,
+      154.062,
+      24.378,
+      23.75
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 665,
+    "iou": 0.0,
+    "center_error": 276.60811686648856,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      17.0,
+      73.0,
+      29.0,
+      55.0
+    ],
+    "gt_xywh": [
+      293.075,
+      116.805,
+      25.071,
+      41.564
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_09_09_person",
+    "frame_index": 714,
+    "iou": 0.0,
+    "center_error": 274.281865567909,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      0.0,
+      25.0,
+      10.0
+    ],
+    "gt_xywh": [
+      242.88,
+      126.838,
+      14.618,
+      30.072
+    ]
+  },
+  {
+    "sequence": "00508_person_outdoor6",
+    "frame_index": 36,
+    "iou": 0.0,
+    "center_error": 273.78568583222625,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      316.0,
+      95.0,
+      29.0,
+      104.0
+    ],
+    "gt_xywh": [
+      24.555,
+      77.22,
+      64.326,
+      136.569
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 666,
+    "iou": 0.0,
+    "center_error": 273.3207552306859,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      24.0,
+      70.0,
+      28.0,
+      56.0
+    ],
+    "gt_xywh": [
+      296.044,
+      117.465,
+      24.741,
+      40.575
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_49_51_personBasketball",
+    "frame_index": 159,
+    "iou": 0.0,
+    "center_error": 272.3853092759088,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      88.0,
+      46.0,
+      128.0
+    ],
+    "gt_xywh": [
+      268.994,
+      87.776,
+      52.78,
+      127.003
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_12_13_56_29",
+    "frame_index": 388,
+    "iou": 0.0,
+    "center_error": 268.5095983872131,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      268.0,
+      0.0,
+      77.0,
+      108.0
+    ],
+    "gt_xywh": [
+      76.016,
+      210.16,
+      45.853,
+      28.369
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_09_09_person",
+    "frame_index": 713,
+    "iou": 0.0,
+    "center_error": 264.566431392538,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      7.0,
+      0.0,
+      31.0,
+      17.0
+    ],
+    "gt_xywh": [
+      243.286,
+      127.65,
+      14.212,
+      30.478
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_09_09_person",
+    "frame_index": 715,
+    "iou": 0.0,
+    "center_error": 263.11815514137373,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      10.0,
+      0.0,
+      21.0,
+      14.0
+    ],
+    "gt_xywh": [
+      243.286,
+      126.838,
+      12.182,
+      19.912
+    ]
+  },
+  {
+    "sequence": "00147_tank_outdoor2",
+    "frame_index": 77,
+    "iou": 0.0,
+    "center_error": 262.2266318015964,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      25.0,
+      12.0,
+      33.0,
+      36.0
+    ],
+    "gt_xywh": [
+      199.994,
+      116.503,
+      126.931,
+      106.255
+    ]
+  },
+  {
+    "sequence": "00147_tank_outdoor2",
+    "frame_index": 74,
+    "iou": 0.0,
+    "center_error": 261.5203313148043,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      67.0,
+      3.0,
+      19.0,
+      27.0
+    ],
+    "gt_xywh": [
+      232.445,
+      115.067,
+      113.555,
+      107.116
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_09_09_person",
+    "frame_index": 712,
+    "iou": 0.0,
+    "center_error": 261.08377820141374,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      10.0,
+      0.0,
+      34.0,
+      17.0
+    ],
+    "gt_xywh": [
+      244.098,
+      127.65,
+      12.994,
+      31.291
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_10_14_18_chicken",
+    "frame_index": 623,
+    "iou": 0.0,
+    "center_error": 260.3165461086799,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      213.0,
+      35.0,
+      46.0
+    ],
+    "gt_xywh": [
+      254.79,
+      148.438,
+      22.503,
+      20.312
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_10_14_18_chicken",
+    "frame_index": 622,
+    "iou": 0.0,
+    "center_error": 258.05493344755587,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      2.0,
+      217.0,
+      42.0,
+      41.0
+    ],
+    "gt_xywh": [
+      257.603,
+      150.625,
+      25.003,
+      25.0
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_10_14_18_chicken",
+    "frame_index": 624,
+    "iou": 0.0,
+    "center_error": 256.6993186828707,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      174.0,
+      18.0,
+      60.0
+    ],
+    "gt_xywh": [
+      250.727,
+      141.875,
+      19.377,
+      20.625
+    ]
+  },
+  {
+    "sequence": "00508_person_outdoor6",
+    "frame_index": 35,
+    "iou": 0.0,
+    "center_error": 254.58330550399901,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      300.0,
+      99.0,
+      45.0,
+      97.0
+    ],
+    "gt_xywh": [
+      35.441,
+      74.91,
+      64.986,
+      139.208
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_21_41_personFootball",
+    "frame_index": 495,
+    "iou": 0.0,
+    "center_error": 252.00046259372715,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      34.0,
+      171.0,
+      25.0,
+      46.0
+    ],
+    "gt_xywh": [
+      287.797,
+      159.359,
+      20.782,
+      44.204
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_10_05_38_phone",
+    "frame_index": 1148,
+    "iou": 0.0,
+    "center_error": 249.66883717693923,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      327.0,
+      203.0,
+      18.0,
+      52.0
+    ],
+    "gt_xywh": [
+      81.895,
+      79.523,
+      60.634,
+      77.562
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_09_36_44_Pedestrian",
+    "frame_index": 32,
+    "iou": 0.0,
+    "center_error": 248.89097381674975,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      334.0,
+      120.0,
+      11.0,
+      24.0
+    ],
+    "gt_xywh": [
+      71.728,
+      157.05,
+      58.388,
+      91.706
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_04_21_18_52",
+    "frame_index": 203,
+    "iou": 0.0,
+    "center_error": 248.65688551025988,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      288.0,
+      101.0,
+      22.0,
+      42.0
+    ],
+    "gt_xywh": [
+      45.884,
+      156.777,
+      23.392,
+      49.554
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_10_14_18_chicken",
+    "frame_index": 625,
+    "iou": 0.0,
+    "center_error": 247.90951656425474,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      157.0,
+      18.0,
+      52.0
+    ],
+    "gt_xywh": [
+      246.664,
+      144.688,
+      16.877,
+      16.875
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_10_23_05_basketall",
+    "frame_index": 499,
+    "iou": 0.0,
+    "center_error": 247.78341783385144,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      29.0,
+      127.0,
+      68.0,
+      105.0
+    ],
+    "gt_xywh": [
+      299.163,
+      187.154,
+      21.89,
+      21.24
+    ]
+  },
+  {
+    "sequence": "video_0015",
+    "frame_index": 293,
+    "iou": 0.0,
+    "center_error": 247.77049619115266,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      225.0,
+      130.0,
+      100.0,
+      129.0
+    ],
+    "gt_xywh": [
+      8.062,
+      116.805,
+      42.884,
+      88.407
+    ]
+  }
+]

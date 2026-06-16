@@ -1,0 +1,28 @@
+Tracker: SDTrack SDTrack-tiny-fe108 None ,  Sequence: giraffe_low
+FPS: 10.139139268053476
+Tracker: SDTrack SDTrack-tiny-fe108 None ,  Sequence: giraffe_motion
+FPS: 9.660955386429448
+Tracker: SDTrack SDTrack-tiny-fe108 None ,  Sequence: ship
+FPS: 7.871458072410886
+Tracker: SDTrack SDTrack-tiny-fe108 None ,  Sequence: ship_motion
+FPS: 9.582947059213579
+Tracker: SDTrack SDTrack-tiny-fe108 None ,  Sequence: star
+FPS: 9.161274625174102
+FPS: -1
+Tracker: SDTrack SDTrack-tiny-fe108 None ,  Sequence: star_mul
+FPS: 9.664521512687537
+Tracker: SDTrack SDTrack-tiny-fe108 None ,  Sequence: star_mul222
+FPS: 9.82215188820413
+Tracker: SDTrack SDTrack-tiny-fe108 None ,  Sequence: tank_low
+FPS: 9.115560553115529
+Tracker: SDTrack SDTrack-tiny-fe108 None ,  Sequence: tower
+FPS: 8.970197716123444
+Tracker: SDTrack SDTrack-tiny-fe108 None ,  Sequence: tower333
+FPS: 8.962923298791777
+Tracker: SDTrack SDTrack-tiny-fe108 None ,  Sequence: truck
+FPS: 8.718278517136913
+Tracker: SDTrack SDTrack-tiny-fe108 None ,  Sequence: truck_hdr
+FPS: 8.834857117603644
+Tracker: SDTrack SDTrack-tiny-fe108 None ,  Sequence: whale_mul222
+FPS: 9.001110171658986
+Done, total time: 3:04:20.630274

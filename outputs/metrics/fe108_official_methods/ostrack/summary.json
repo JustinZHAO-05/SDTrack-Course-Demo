@@ -1,0 +1,12 @@
+{
+  "tracker": "ostrack",
+  "sequences": 32,
+  "frames": 59688,
+  "auc_micro": 0.5453926424005489,
+  "pr20_micro": 0.8617477549926283,
+  "auc_sequence_weighted": 0.5453926424005487,
+  "pr20_sequence_weighted": 0.8617477549926283,
+  "mean_iou": 0.5453796145313766,
+  "mean_center_error": 847.9843017074079,
+  "absent_filter": true
+}

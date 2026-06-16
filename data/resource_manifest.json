@@ -1,0 +1,39 @@
+{
+  "repository": {
+    "url": "https://github.com/YmShan/SDTrack.git",
+    "commit": "a3e4d8d508e1808e9e41629733b20d38ee52ce05"
+  },
+  "datasets": {
+    "FE108_reprocessed": {
+      "url": "https://pan.baidu.com/s/1V2yIIUgJQt18TCJcS9L4Sg?pwd=SDTk",
+      "password": "SDTk",
+      "role": "primary full reproduction dataset"
+    },
+    "VisEvent_reprocessed": {
+      "url": "https://pan.baidu.com/s/1TxAHrxap9NFRnPmffgkB6Q?pwd=SDTk",
+      "password": "SDTk",
+      "role": "subset cross-dataset validation"
+    },
+    "FE108_original": {
+      "url": "https://zhangjiqing.com/dataset/",
+      "role": "fallback source if reprocessed Baidu data is inaccessible"
+    },
+    "VisEvent_original": {
+      "url": "https://github.com/wangxiao5791509/VisEvent_SOT_Benchmark",
+      "role": "fallback source if reprocessed Baidu data is inaccessible"
+    }
+  },
+  "weights": {
+    "SDTrack_Tiny_1x4_FE108": "https://drive.google.com/file/d/1Hal0RcEgYKuqBiUFwPHa8f2bisboIp80/view?usp=sharing",
+    "SDTrack_Tiny_1x4_VisEvent": "https://drive.google.com/file/d/1rbZT2DBMeKrWZ8ORwNDz9fBKoMqRGN-_/view?usp=sharing",
+    "ImageNet_Tiny_1x4": "https://drive.google.com/file/d/1OcXHCnibEv9F40gw5VwGO90adtE6E0Ik/view?usp=sharing"
+  },
+  "official_results": {
+    "FE108_all_methods": "https://drive.google.com/file/d/1CVV0emPwmSh-0b08aTouEOsCZSeACM6B/view?usp=sharing",
+    "VisEvent_all_methods": "https://drive.google.com/file/d/1By9Wh_L0d8gOxl12_b3T4XaKoOW0CXx1/view?usp=drive_link"
+  },
+  "evaluation_scripts": {
+    "FE108_matlab": "https://drive.google.com/file/d/1sf2pSOAYAcsWbnxC2brsG_QnzvMP0rrJ/view?usp=sharing",
+    "VisEvent_matlab": "https://drive.google.com/file/d/1QgZEMbnJifpSFjnUJIVlL9D3_AeOZWYf/view?usp=sharing"
+  }
+}

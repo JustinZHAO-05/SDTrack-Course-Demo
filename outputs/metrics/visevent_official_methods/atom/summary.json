@@ -1,0 +1,12 @@
+{
+  "tracker": "atom",
+  "sequences": 172,
+  "frames": 93805,
+  "auc_micro": 0.23358367711404687,
+  "pr20_micro": 0.38847609402483874,
+  "auc_sequence_weighted": 0.23358367711404682,
+  "pr20_sequence_weighted": 0.38847609402483874,
+  "mean_iou": 0.22877600966023393,
+  "mean_center_error": 59.1383512782581,
+  "absent_filter": true
+}

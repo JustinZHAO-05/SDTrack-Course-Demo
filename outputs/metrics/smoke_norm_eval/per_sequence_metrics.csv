@@ -1,0 +1,2 @@
+﻿sequence,frames,auc,pr20,norm_precision_020,mean_iou,mean_center_error,failure_rate_iou_010,category_tags
+star_motion,2122,0.5974981569787516,0.9792648444863337,0.6065032987747409,0.5983434112446967,8.109228691920494,0.020263901979264844,all;fast_motion

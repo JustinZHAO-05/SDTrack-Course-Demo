@@ -1,0 +1,12 @@
+{
+  "tracker": "stark",
+  "sequences": 172,
+  "frames": 93805,
+  "auc_micro": 0.3121850098767139,
+  "pr20_micro": 0.4088161611854379,
+  "auc_sequence_weighted": 0.3121850098767137,
+  "pr20_sequence_weighted": 0.4088161611854379,
+  "mean_iou": 0.30849720095527244,
+  "mean_center_error": 55.80724574721978,
+  "absent_filter": true
+}

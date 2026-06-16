@@ -1,0 +1,3 @@
+﻿setting,paper_auc,paper_pr20,public_auc,public_pr20,local_auc,local_pr20,local_sequences,local_frames
+FE108 SDTrack-Tiny-1x4,59.0,91.3,59.29,91.04,59.36,91.03,32,59688
+VisEvent SDTrack-Tiny-1x4,35.6,49.2,33.21,43.78,16.41,31.33,5,3071

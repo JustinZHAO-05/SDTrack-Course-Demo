@@ -1,0 +1,952 @@
+[
+  {
+    "sequence": "00508_person_outdoor6",
+    "frame_index": 49,
+    "iou": 0.0,
+    "center_error": 325.93825348885105,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      198.0,
+      43.0,
+      59.0
+    ],
+    "gt_xywh": [
+      314.847,
+      81.508,
+      31.153,
+      84.119
+    ]
+  },
+  {
+    "sequence": "00508_person_outdoor6",
+    "frame_index": 45,
+    "iou": 0.0,
+    "center_error": 321.9858973060932,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      140.0,
+      38.0,
+      57.0
+    ],
+    "gt_xywh": [
+      333.98,
+      84.477,
+      12.02,
+      117.436
+    ]
+  },
+  {
+    "sequence": "00508_person_outdoor6",
+    "frame_index": 42,
+    "iou": 0.0,
+    "center_error": 321.4586020173865,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      4.0,
+      153.0,
+      39.0,
+      62.0
+    ],
+    "gt_xywh": [
+      340.578,
+      100.641,
+      5.422,
+      101.272
+    ]
+  },
+  {
+    "sequence": "00508_person_outdoor6",
+    "frame_index": 43,
+    "iou": 0.0,
+    "center_error": 318.4405166769455,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      4.0,
+      153.0,
+      39.0,
+      62.0
+    ],
+    "gt_xywh": [
+      334.97,
+      103.94,
+      11.03,
+      99.293
+    ]
+  },
+  {
+    "sequence": "00508_person_outdoor6",
+    "frame_index": 51,
+    "iou": 0.0,
+    "center_error": 318.28202591689416,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      198.0,
+      43.0,
+      59.0
+    ],
+    "gt_xywh": [
+      302.642,
+      84.477,
+      43.358,
+      90.056
+    ]
+  },
+  {
+    "sequence": "00508_person_outdoor6",
+    "frame_index": 46,
+    "iou": 0.0,
+    "center_error": 315.9891177539663,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      140.0,
+      38.0,
+      57.0
+    ],
+    "gt_xywh": [
+      322.104,
+      86.786,
+      23.896,
+      114.797
+    ]
+  },
+  {
+    "sequence": "00508_person_outdoor6",
+    "frame_index": 48,
+    "iou": 0.0,
+    "center_error": 315.1006435584827,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      140.0,
+      38.0,
+      57.0
+    ],
+    "gt_xywh": [
+      318.476,
+      81.178,
+      27.524,
+      106.22
+    ]
+  },
+  {
+    "sequence": "00508_person_outdoor6",
+    "frame_index": 47,
+    "iou": 0.0,
+    "center_error": 314.0748723767352,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      140.0,
+      38.0,
+      57.0
+    ],
+    "gt_xywh": [
+      313.528,
+      84.477,
+      31.998,
+      73.892
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_10_09_04_bottle",
+    "frame_index": 423,
+    "iou": 0.0,
+    "center_error": 290.2691434554705,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      24.0,
+      23.0,
+      26.0,
+      64.0
+    ],
+    "gt_xywh": [
+      287.797,
+      161.998,
+      21.112,
+      38.596
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_10_09_04_bottle",
+    "frame_index": 422,
+    "iou": 0.0,
+    "center_error": 289.1437078207046,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      24.0,
+      23.0,
+      26.0,
+      64.0
+    ],
+    "gt_xywh": [
+      286.808,
+      162.988,
+      19.463,
+      38.926
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_45_17_personBasketball",
+    "frame_index": 425,
+    "iou": 0.0,
+    "center_error": 284.4587888524628,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      327.0,
+      224.0,
+      19.0,
+      33.0
+    ],
+    "gt_xywh": [
+      50.946,
+      122.743,
+      26.72,
+      70.264
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_45_17_personBasketball",
+    "frame_index": 424,
+    "iou": 0.0,
+    "center_error": 280.5709586824918,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      327.0,
+      226.0,
+      17.0,
+      32.0
+    ],
+    "gt_xywh": [
+      57.543,
+      123.732,
+      19.463,
+      71.913
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_20_28_personFootball",
+    "frame_index": 349,
+    "iou": 0.0,
+    "center_error": 278.4026111171553,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      50.0,
+      8.0,
+      13.0
+    ],
+    "gt_xywh": [
+      225.121,
+      164.967,
+      36.946,
+      66.635
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_45_17_personBasketball",
+    "frame_index": 427,
+    "iou": 0.0,
+    "center_error": 277.91841819578997,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      323.0,
+      177.0,
+      21.0,
+      38.0
+    ],
+    "gt_xywh": [
+      45.668,
+      117.465,
+      26.39,
+      71.913
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_10_09_04_bottle",
+    "frame_index": 425,
+    "iou": 0.0,
+    "center_error": 274.9661880211183,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      24.0,
+      23.0,
+      26.0,
+      64.0
+    ],
+    "gt_xywh": [
+      268.005,
+      166.286,
+      21.772,
+      38.926
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_20_28_personFootball",
+    "frame_index": 351,
+    "iou": 0.0,
+    "center_error": 274.3196458741381,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      1.0,
+      57.0,
+      9.0,
+      14.0
+    ],
+    "gt_xywh": [
+      229.739,
+      172.224,
+      25.4,
+      60.038
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_08_12_blackcar",
+    "frame_index": 258,
+    "iou": 0.0,
+    "center_error": 269.19703249975197,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      343.0,
+      257.0,
+      5.0,
+      1.0
+    ],
+    "gt_xywh": [
+      81.675,
+      166.256,
+      15.43,
+      16.661
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_45_17_personBasketball",
+    "frame_index": 423,
+    "iou": 0.0,
+    "center_error": 266.9208661966782,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      320.0,
+      225.0,
+      26.0,
+      30.0
+    ],
+    "gt_xywh": [
+      52.925,
+      171.564,
+      37.936,
+      26.06
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_20_28_personFootball",
+    "frame_index": 352,
+    "iou": 0.0,
+    "center_error": 266.38793387224763,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      76.0,
+      8.0,
+      13.0
+    ],
+    "gt_xywh": [
+      226.11,
+      176.513,
+      26.06,
+      62.347
+    ]
+  },
+  {
+    "sequence": "video_0005",
+    "frame_index": 315,
+    "iou": 0.0,
+    "center_error": 265.02176612544486,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      38.0,
+      256.0,
+      2.0,
+      1.0
+    ],
+    "gt_xywh": [
+      227.1,
+      28.398,
+      79.83,
+      186.051
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_20_28_personFootball",
+    "frame_index": 350,
+    "iou": 0.0,
+    "center_error": 262.4061594292043,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      21.0,
+      47.0,
+      11.0,
+      14.0
+    ],
+    "gt_xywh": [
+      231.058,
+      167.936,
+      27.05,
+      63.996
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_14_16_53_15_flag",
+    "frame_index": 623,
+    "iou": 0.0,
+    "center_error": 258.329612117141,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      36.0,
+      217.0,
+      89.0,
+      39.0
+    ],
+    "gt_xywh": [
+      210.505,
+      0.0,
+      91.321,
+      94.182
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_20_28_personFootball",
+    "frame_index": 353,
+    "iou": 0.0,
+    "center_error": 257.1596753520126,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      1.0,
+      96.0,
+      8.0,
+      12.0
+    ],
+    "gt_xywh": [
+      224.461,
+      177.172,
+      29.359,
+      62.347
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_20_28_personFootball",
+    "frame_index": 348,
+    "iou": 0.0,
+    "center_error": 256.06417592007085,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      3.0,
+      63.0,
+      10.0,
+      15.0
+    ],
+    "gt_xywh": [
+      213.905,
+      167.936,
+      29.689,
+      64.656
+    ]
+  },
+  {
+    "sequence": "video_0056",
+    "frame_index": 626,
+    "iou": 0.0,
+    "center_error": 255.60783686202288,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      302.0,
+      97.0,
+      17.0,
+      35.0
+    ],
+    "gt_xywh": [
+      45.612,
+      98.477,
+      18.758,
+      46.232
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_20_28_personFootball",
+    "frame_index": 354,
+    "iou": 0.0,
+    "center_error": 254.18447390420997,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      1.0,
+      96.0,
+      8.0,
+      12.0
+    ],
+    "gt_xywh": [
+      224.131,
+      177.172,
+      24.081,
+      61.027
+    ]
+  },
+  {
+    "sequence": "tennis_long_003",
+    "frame_index": 846,
+    "iou": 0.0,
+    "center_error": 252.92896181959864,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      101.0,
+      252.0,
+      36.0,
+      63.0
+    ],
+    "gt_xywh": [
+      324.123,
+      129.692,
+      21.877,
+      44.629
+    ]
+  },
+  {
+    "sequence": "tennis_long_003",
+    "frame_index": 851,
+    "iou": 0.0,
+    "center_error": 252.38169388230696,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      95.0,
+      255.0,
+      40.0,
+      38.0
+    ],
+    "gt_xywh": [
+      326.893,
+      131.231,
+      19.107,
+      43.398
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_45_17_personBasketball",
+    "frame_index": 418,
+    "iou": 0.0,
+    "center_error": 249.780792664338,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      318.0,
+      231.0,
+      25.0,
+      23.0
+    ],
+    "gt_xywh": [
+      79.315,
+      122.083,
+      31.998,
+      72.573
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_20_28_personFootball",
+    "frame_index": 346,
+    "iou": 0.0,
+    "center_error": 249.23158264090452,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -2.0,
+      81.0,
+      10.0,
+      13.0
+    ],
+    "gt_xywh": [
+      210.276,
+      171.564,
+      26.39,
+      64.326
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_45_17_personBasketball",
+    "frame_index": 421,
+    "iou": 0.0,
+    "center_error": 249.0548146341333,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      306.0,
+      217.0,
+      26.0,
+      30.0
+    ],
+    "gt_xywh": [
+      63.481,
+      122.413,
+      35.297,
+      71.583
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_45_17_personBasketball",
+    "frame_index": 419,
+    "iou": 0.0,
+    "center_error": 248.78681127077957,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      315.0,
+      225.0,
+      24.0,
+      25.0
+    ],
+    "gt_xywh": [
+      75.026,
+      121.423,
+      32.658,
+      72.573
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_45_17_personBasketball",
+    "frame_index": 420,
+    "iou": 0.0,
+    "center_error": 247.86219487974057,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      319.0,
+      188.0,
+      27.0,
+      27.0
+    ],
+    "gt_xywh": [
+      69.748,
+      120.763,
+      37.936,
+      71.913
+    ]
+  },
+  {
+    "sequence": "tennis_long_003",
+    "frame_index": 850,
+    "iou": 0.0,
+    "center_error": 246.00643336265108,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      99.0,
+      251.0,
+      44.0,
+      44.0
+    ],
+    "gt_xywh": [
+      324.738,
+      130.616,
+      21.262,
+      43.398
+    ]
+  },
+  {
+    "sequence": "video_0073",
+    "frame_index": 331,
+    "iou": 0.0,
+    "center_error": 245.85103506215407,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -3.0,
+      26.0,
+      42.0,
+      122.0
+    ],
+    "gt_xywh": [
+      248.24,
+      119.662,
+      18.666,
+      45.086
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_45_17_personBasketball",
+    "frame_index": 563,
+    "iou": 0.0,
+    "center_error": 244.51135548445393,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      323.0,
+      7.0,
+      5.0,
+      10.0
+    ],
+    "gt_xywh": [
+      115.272,
+      119.444,
+      32.988,
+      83.459
+    ]
+  },
+  {
+    "sequence": "video_0073",
+    "frame_index": 332,
+    "iou": 0.0,
+    "center_error": 244.23213211064694,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -3.0,
+      22.0,
+      47.0,
+      121.0
+    ],
+    "gt_xywh": [
+      247.665,
+      119.949,
+      19.241,
+      44.799
+    ]
+  },
+  {
+    "sequence": "00385_UAV_outdoor6",
+    "frame_index": 34,
+    "iou": 0.0,
+    "center_error": 243.73426439211417,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      279.0,
+      97.0,
+      21.0,
+      16.0
+    ],
+    "gt_xywh": [
+      26.535,
+      68.313,
+      40.575,
+      28.04
+    ]
+  },
+  {
+    "sequence": "00385_UAV_outdoor6",
+    "frame_index": 35,
+    "iou": 0.0,
+    "center_error": 242.8283623486196,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      279.0,
+      97.0,
+      21.0,
+      16.0
+    ],
+    "gt_xywh": [
+      27.194,
+      66.664,
+      41.564,
+      26.39
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_14_16_53_15_flag",
+    "frame_index": 624,
+    "iou": 0.0,
+    "center_error": 242.76328384692468,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      36.0,
+      217.0,
+      89.0,
+      39.0
+    ],
+    "gt_xywh": [
+      206.37,
+      17.664,
+      92.354,
+      95.131
+    ]
+  },
+  {
+    "sequence": "tennis_long_003",
+    "frame_index": 853,
+    "iou": 0.0,
+    "center_error": 242.74049766889948,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      95.0,
+      226.0,
+      32.0,
+      39.0
+    ],
+    "gt_xywh": [
+      325.046,
+      132.154,
+      20.954,
+      42.167
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_21_41_personFootball",
+    "frame_index": 390,
+    "iou": 0.0,
+    "center_error": 242.7195742614149,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      322.0,
+      163.0,
+      1.0,
+      1.0
+    ],
+    "gt_xywh": [
+      69.089,
+      149.463,
+      21.442,
+      35.627
+    ]
+  },
+  {
+    "sequence": "tennis_long_006",
+    "frame_index": 468,
+    "iou": 0.0,
+    "center_error": 242.5987943177377,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      3.0,
+      106.0,
+      16.0,
+      3.0
+    ],
+    "gt_xywh": [
+      247.552,
+      105.259,
+      11.216,
+      33.647
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_21_41_personFootball",
+    "frame_index": 388,
+    "iou": 0.0,
+    "center_error": 242.07736593962065,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      322.0,
+      163.0,
+      1.0,
+      1.0
+    ],
+    "gt_xywh": [
+      70.078,
+      150.122,
+      20.782,
+      36.286
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_21_41_personFootball",
+    "frame_index": 389,
+    "iou": 0.0,
+    "center_error": 241.562692520389,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      322.0,
+      163.0,
+      1.0,
+      1.0
+    ],
+    "gt_xywh": [
+      70.738,
+      149.463,
+      20.452,
+      35.297
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_21_41_personFootball",
+    "frame_index": 387,
+    "iou": 0.0,
+    "center_error": 241.39540122318508,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      322.0,
+      163.0,
+      1.0,
+      1.0
+    ],
+    "gt_xywh": [
+      72.058,
+      149.133,
+      18.143,
+      35.627
+    ]
+  },
+  {
+    "sequence": "video_0073",
+    "frame_index": 334,
+    "iou": 0.0,
+    "center_error": 240.9698935610266,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -3.0,
+      10.0,
+      62.0,
+      120.0
+    ],
+    "gt_xywh": [
+      248.527,
+      120.81,
+      18.379,
+      43.938
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_20_28_personFootball",
+    "frame_index": 347,
+    "iou": 0.0,
+    "center_error": 240.93312009361125,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      1.0,
+      87.0,
+      11.0,
+      13.0
+    ],
+    "gt_xywh": [
+      207.637,
+      171.564,
+      27.05,
+      62.677
+    ]
+  },
+  {
+    "sequence": "video_0073",
+    "frame_index": 333,
+    "iou": 0.0,
+    "center_error": 240.69086968368788,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      1.0,
+      17.0,
+      47.0,
+      123.0
+    ],
+    "gt_xywh": [
+      247.665,
+      119.949,
+      17.805,
+      44.799
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_21_41_personFootball",
+    "frame_index": 386,
+    "iou": 0.0,
+    "center_error": 240.07598572327572,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      322.0,
+      163.0,
+      1.0,
+      1.0
+    ],
+    "gt_xywh": [
+      72.717,
+      149.463,
+      19.463,
+      34.967
+    ]
+  }
+]

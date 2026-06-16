@@ -1,0 +1,12 @@
+{
+  "tracker": "seqtrack",
+  "sequences": 32,
+  "frames": 59688,
+  "auc_micro": 0.5307035528643336,
+  "pr20_micro": 0.8448766921324219,
+  "auc_sequence_weighted": 0.5307035528643336,
+  "pr20_sequence_weighted": 0.8448766921324219,
+  "mean_iou": 0.5305052053269895,
+  "mean_center_error": 847.6143147876298,
+  "absent_filter": true
+}

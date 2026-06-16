@@ -1,0 +1,3 @@
+torch: 2.1.2+cu121 True
+device: NVIDIA GeForce RTX 4050 Laptop GPU
+nvidia-smi: Sun Jun 14 17:47:01 2026       

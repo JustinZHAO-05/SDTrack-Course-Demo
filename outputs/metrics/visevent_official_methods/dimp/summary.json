@@ -1,0 +1,12 @@
+{
+  "tracker": "dimp",
+  "sequences": 172,
+  "frames": 93805,
+  "auc_micro": 0.23391816075163296,
+  "pr20_micro": 0.3093331911944992,
+  "auc_sequence_weighted": 0.233918160751633,
+  "pr20_sequence_weighted": 0.3093331911944992,
+  "mean_iou": 0.22848376020671318,
+  "mean_center_error": 85.10129937977591,
+  "absent_filter": true
+}

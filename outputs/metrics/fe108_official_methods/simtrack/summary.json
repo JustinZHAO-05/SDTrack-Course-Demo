@@ -1,0 +1,12 @@
+{
+  "tracker": "simtrack",
+  "sequences": 32,
+  "frames": 59688,
+  "auc_micro": 0.5685944800752692,
+  "pr20_micro": 0.8788198632891033,
+  "auc_sequence_weighted": 0.5685944800752695,
+  "pr20_sequence_weighted": 0.8788198632891033,
+  "mean_iou": 0.5689043274514041,
+  "mean_center_error": 844.3408249317351,
+  "absent_filter": true
+}

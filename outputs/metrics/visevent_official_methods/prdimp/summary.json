@@ -1,0 +1,12 @@
+{
+  "tracker": "prdimp",
+  "sequences": 172,
+  "frames": 93805,
+  "auc_micro": 0.26118116315655865,
+  "pr20_micro": 0.36919140770747827,
+  "auc_sequence_weighted": 0.2611811631565587,
+  "pr20_sequence_weighted": 0.36919140770747827,
+  "mean_iou": 0.2573788677082885,
+  "mean_center_error": 59.174445259569445,
+  "absent_filter": true
+}
