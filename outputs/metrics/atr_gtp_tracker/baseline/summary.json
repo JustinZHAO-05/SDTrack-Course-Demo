@@ -1,0 +1,14 @@
+{
+  "tracker": "ATR-GTP-baseline",
+  "sequences": 5,
+  "frames": 10184,
+  "auc_micro": 0.6088010313207284,
+  "pr20_micro": 0.9186959937156324,
+  "norm_precision_020_micro": 0.6640809112333071,
+  "auc_sequence_weighted": 0.6088010313207283,
+  "pr20_sequence_weighted": 0.9186959937156324,
+  "norm_precision_020_sequence_weighted": 0.6640809112333071,
+  "mean_iou": 0.6095233472273206,
+  "mean_center_error": 14.757693114347433,
+  "absent_filter": false
+}

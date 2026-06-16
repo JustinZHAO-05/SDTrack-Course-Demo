@@ -1,0 +1,12 @@
+{
+  "tracker": "artrack",
+  "sequences": 172,
+  "frames": 93805,
+  "auc_micro": 0.30428933837363265,
+  "pr20_micro": 0.38051276584403815,
+  "auc_sequence_weighted": 0.3042893383736327,
+  "pr20_sequence_weighted": 0.38051276584403815,
+  "mean_iou": 0.3007067996426555,
+  "mean_center_error": 59.47428801080569,
+  "absent_filter": true
+}

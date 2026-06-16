@@ -1,0 +1,952 @@
+[
+  {
+    "sequence": "tennis_long_001",
+    "frame_index": 425,
+    "iou": 0.0,
+    "center_error": 232.89431594436243,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      252.0,
+      102.0,
+      13.0,
+      27.0
+    ],
+    "gt_xywh": [
+      17.613,
+      123.106,
+      21.744,
+      57.806
+    ]
+  },
+  {
+    "sequence": "tennis_long_001",
+    "frame_index": 424,
+    "iou": 0.0,
+    "center_error": 232.36061568219776,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      252.0,
+      101.0,
+      13.0,
+      27.0
+    ],
+    "gt_xywh": [
+      17.828,
+      124.506,
+      22.925,
+      56.271
+    ]
+  },
+  {
+    "sequence": "tennis_long_001",
+    "frame_index": 423,
+    "iou": 0.0,
+    "center_error": 232.33038373881493,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      252.0,
+      100.0,
+      15.0,
+      30.0
+    ],
+    "gt_xywh": [
+      18.776,
+      124.884,
+      23.115,
+      56.65
+    ]
+  },
+  {
+    "sequence": "tennis_long_001",
+    "frame_index": 429,
+    "iou": 0.0,
+    "center_error": 232.16866631863246,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      248.0,
+      102.0,
+      14.0,
+      30.0
+    ],
+    "gt_xywh": [
+      10.7,
+      121.918,
+      29.524,
+      59.873
+    ]
+  },
+  {
+    "sequence": "tennis_long_001",
+    "frame_index": 428,
+    "iou": 0.0,
+    "center_error": 231.59477559756175,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      249.0,
+      102.0,
+      15.0,
+      30.0
+    ],
+    "gt_xywh": [
+      14.254,
+      122.575,
+      26.516,
+      58.16
+    ]
+  },
+  {
+    "sequence": "tennis_long_001",
+    "frame_index": 427,
+    "iou": 0.0,
+    "center_error": 231.49433284619516,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      249.0,
+      102.0,
+      14.0,
+      30.0
+    ],
+    "gt_xywh": [
+      13.85,
+      122.99,
+      26.714,
+      58.544
+    ]
+  },
+  {
+    "sequence": "tennis_long_001",
+    "frame_index": 426,
+    "iou": 0.0,
+    "center_error": 231.20085556989187,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      250.0,
+      102.0,
+      13.0,
+      31.0
+    ],
+    "gt_xywh": [
+      15.555,
+      122.611,
+      24.63,
+      58.545
+    ]
+  },
+  {
+    "sequence": "tennis_long_001",
+    "frame_index": 421,
+    "iou": 0.0,
+    "center_error": 231.06883202035277,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      251.0,
+      100.0,
+      14.0,
+      30.0
+    ],
+    "gt_xywh": [
+      18.965,
+      124.884,
+      22.167,
+      55.892
+    ]
+  },
+  {
+    "sequence": "tennis_long_001",
+    "frame_index": 422,
+    "iou": 0.0,
+    "center_error": 230.79762335279798,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      251.0,
+      100.0,
+      14.0,
+      28.0
+    ],
+    "gt_xywh": [
+      19.112,
+      124.227,
+      22.597,
+      56.244
+    ]
+  },
+  {
+    "sequence": "video_0045",
+    "frame_index": 27,
+    "iou": 0.0,
+    "center_error": 192.13757426462038,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      241.0,
+      29.0,
+      104.0,
+      101.0
+    ],
+    "gt_xywh": [
+      67.288,
+      26.586,
+      72.125,
+      44.194
+    ]
+  },
+  {
+    "sequence": "tennis_long_001",
+    "frame_index": 324,
+    "iou": 0.0,
+    "center_error": 177.7339249154266,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      208.0,
+      102.0,
+      13.0,
+      20.0
+    ],
+    "gt_xywh": [
+      27.87,
+      129.81,
+      32.777,
+      66.502
+    ]
+  },
+  {
+    "sequence": "video_0032",
+    "frame_index": 1080,
+    "iou": 0.0,
+    "center_error": 177.3343563157743,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      312.0,
+      126.0,
+      26.0,
+      40.0
+    ],
+    "gt_xywh": [
+      141.887,
+      88.104,
+      19.799,
+      39.775
+    ]
+  },
+  {
+    "sequence": "video_0032",
+    "frame_index": 1082,
+    "iou": 0.0,
+    "center_error": 176.0200176263058,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      313.0,
+      118.0,
+      24.0,
+      47.0
+    ],
+    "gt_xywh": [
+      142.594,
+      90.579,
+      18.738,
+      37.3
+    ]
+  },
+  {
+    "sequence": "video_0032",
+    "frame_index": 1084,
+    "iou": 0.0,
+    "center_error": 175.3220905772929,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      314.0,
+      118.0,
+      23.0,
+      48.0
+    ],
+    "gt_xywh": [
+      142.948,
+      90.579,
+      20.506,
+      38.007
+    ]
+  },
+  {
+    "sequence": "video_0032",
+    "frame_index": 1083,
+    "iou": 0.0,
+    "center_error": 175.23791744250158,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      314.0,
+      120.0,
+      22.0,
+      44.0
+    ],
+    "gt_xywh": [
+      143.655,
+      90.579,
+      18.738,
+      35.532
+    ]
+  },
+  {
+    "sequence": "video_0032",
+    "frame_index": 1085,
+    "iou": 0.0,
+    "center_error": 174.46184914809456,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      314.0,
+      122.0,
+      22.0,
+      42.0
+    ],
+    "gt_xywh": [
+      143.302,
+      90.225,
+      21.213,
+      37.3
+    ]
+  },
+  {
+    "sequence": "video_0032",
+    "frame_index": 1086,
+    "iou": 0.0,
+    "center_error": 172.69941442865405,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      313.0,
+      120.0,
+      22.0,
+      44.0
+    ],
+    "gt_xywh": [
+      144.009,
+      90.225,
+      20.86,
+      38.007
+    ]
+  },
+  {
+    "sequence": "video_0032",
+    "frame_index": 1087,
+    "iou": 0.0,
+    "center_error": 172.18332586476689,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      313.0,
+      117.0,
+      22.0,
+      47.0
+    ],
+    "gt_xywh": [
+      144.362,
+      90.579,
+      20.506,
+      38.007
+    ]
+  },
+  {
+    "sequence": "video_0032",
+    "frame_index": 1088,
+    "iou": 0.0,
+    "center_error": 171.7417993076962,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      312.0,
+      118.0,
+      22.0,
+      45.0
+    ],
+    "gt_xywh": [
+      143.302,
+      88.458,
+      21.92,
+      40.128
+    ]
+  },
+  {
+    "sequence": "roadLight_001",
+    "frame_index": 247,
+    "iou": 0.0,
+    "center_error": 171.58558140939465,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      206.0,
+      207.0,
+      34.0,
+      52.0
+    ],
+    "gt_xywh": [
+      115.272,
+      66.334,
+      36.946,
+      40.245
+    ]
+  },
+  {
+    "sequence": "video_0032",
+    "frame_index": 1089,
+    "iou": 0.0,
+    "center_error": 170.5227286254313,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      312.0,
+      116.0,
+      23.0,
+      49.0
+    ],
+    "gt_xywh": [
+      144.716,
+      90.225,
+      22.274,
+      38.184
+    ]
+  },
+  {
+    "sequence": "video_0045",
+    "frame_index": 33,
+    "iou": 0.0,
+    "center_error": 162.8890177777879,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      161.0,
+      0.0,
+      184.0,
+      157.0
+    ],
+    "gt_xywh": [
+      55.974,
+      4.665,
+      83.085,
+      50.558
+    ]
+  },
+  {
+    "sequence": "video_0045",
+    "frame_index": 31,
+    "iou": 0.0,
+    "center_error": 158.55949721571395,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      163.0,
+      0.0,
+      182.0,
+      151.0
+    ],
+    "gt_xywh": [
+      59.156,
+      14.918,
+      80.61,
+      50.205
+    ]
+  },
+  {
+    "sequence": "video_0045",
+    "frame_index": 30,
+    "iou": 0.0,
+    "center_error": 158.04999570250706,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      175.0,
+      34.0,
+      151.0,
+      116.0
+    ],
+    "gt_xywh": [
+      62.338,
+      18.808,
+      76.014,
+      47.73
+    ]
+  },
+  {
+    "sequence": "roadLight_001",
+    "frame_index": 187,
+    "iou": 0.0,
+    "center_error": 157.9725451217157,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      143.0,
+      169.0,
+      35.0,
+      63.0
+    ],
+    "gt_xywh": [
+      117.581,
+      25.429,
+      35.297,
+      38.266
+    ]
+  },
+  {
+    "sequence": "video_0045",
+    "frame_index": 32,
+    "iou": 0.0,
+    "center_error": 156.7750729421374,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      159.0,
+      0.0,
+      186.0,
+      155.0
+    ],
+    "gt_xywh": [
+      59.156,
+      11.736,
+      81.317,
+      56.215
+    ]
+  },
+  {
+    "sequence": "roadLight_001",
+    "frame_index": 246,
+    "iou": 0.0,
+    "center_error": 151.44468259045942,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      143.0,
+      206.0,
+      37.0,
+      53.0
+    ],
+    "gt_xywh": [
+      117.251,
+      63.365,
+      36.286,
+      39.915
+    ]
+  },
+  {
+    "sequence": "video_0045",
+    "frame_index": 29,
+    "iou": 0.0,
+    "center_error": 148.0375330619654,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      169.0,
+      42.0,
+      142.0,
+      105.0
+    ],
+    "gt_xywh": [
+      62.338,
+      21.636,
+      77.075,
+      44.548
+    ]
+  },
+  {
+    "sequence": "roadLight_001",
+    "frame_index": 248,
+    "iou": 0.0,
+    "center_error": 147.42637561962923,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      142.0,
+      208.0,
+      36.0,
+      50.0
+    ],
+    "gt_xywh": [
+      112.962,
+      67.653,
+      37.936,
+      41.235
+    ]
+  },
+  {
+    "sequence": "roadLight_001",
+    "frame_index": 249,
+    "iou": 0.0,
+    "center_error": 145.998969268151,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      142.0,
+      213.0,
+      36.0,
+      46.0
+    ],
+    "gt_xywh": [
+      111.973,
+      73.591,
+      38.266,
+      38.596
+    ]
+  },
+  {
+    "sequence": "roadLight_001",
+    "frame_index": 250,
+    "iou": 0.0,
+    "center_error": 142.34886006928542,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      145.0,
+      213.0,
+      34.0,
+      45.0
+    ],
+    "gt_xywh": [
+      114.612,
+      76.23,
+      36.286,
+      39.915
+    ]
+  },
+  {
+    "sequence": "roadLight_001",
+    "frame_index": 251,
+    "iou": 0.0,
+    "center_error": 141.22351938612243,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      144.0,
+      215.0,
+      34.0,
+      44.0
+    ],
+    "gt_xywh": [
+      113.952,
+      77.55,
+      38.926,
+      41.894
+    ]
+  },
+  {
+    "sequence": "video_0045",
+    "frame_index": 28,
+    "iou": 0.0,
+    "center_error": 122.20171814105151,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      158.0,
+      39.0,
+      120.0,
+      99.0
+    ],
+    "gt_xywh": [
+      67.995,
+      22.343,
+      70.711,
+      47.73
+    ]
+  },
+  {
+    "sequence": "roadLight_001",
+    "frame_index": 252,
+    "iou": 0.0,
+    "center_error": 117.04741088176621,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      144.0,
+      182.0,
+      54.0,
+      57.0
+    ],
+    "gt_xywh": [
+      115.272,
+      79.199,
+      36.286,
+      40.905
+    ]
+  },
+  {
+    "sequence": "roadLight_001",
+    "frame_index": 253,
+    "iou": 0.0,
+    "center_error": 116.47304809998964,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      201.0,
+      143.0,
+      50.0,
+      58.0
+    ],
+    "gt_xywh": [
+      115.931,
+      81.178,
+      36.286,
+      38.596
+    ]
+  },
+  {
+    "sequence": "video_0045",
+    "frame_index": 26,
+    "iou": 0.0,
+    "center_error": 112.96452930041801,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      155.0,
+      62.0,
+      101.0,
+      78.0
+    ],
+    "gt_xywh": [
+      68.348,
+      33.657,
+      70.357,
+      37.477
+    ]
+  },
+  {
+    "sequence": "video_0045",
+    "frame_index": 25,
+    "iou": 0.0,
+    "center_error": 110.10914274656079,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      160.0,
+      61.0,
+      89.0,
+      82.0
+    ],
+    "gt_xywh": [
+      71.884,
+      33.657,
+      65.054,
+      44.901
+    ]
+  },
+  {
+    "sequence": "roadLight_001",
+    "frame_index": 254,
+    "iou": 0.0,
+    "center_error": 90.39093626722206,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      203.0,
+      76.0,
+      42.0,
+      65.0
+    ],
+    "gt_xywh": [
+      114.942,
+      81.178,
+      37.936,
+      39.915
+    ]
+  },
+  {
+    "sequence": "video_0045",
+    "frame_index": 21,
+    "iou": 0.0,
+    "center_error": 76.87686768893813,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      147.0,
+      28.0,
+      68.0,
+      93.0
+    ],
+    "gt_xywh": [
+      72.237,
+      46.738,
+      65.054,
+      35.709
+    ]
+  },
+  {
+    "sequence": "video_0076",
+    "frame_index": 44,
+    "iou": 0.0,
+    "center_error": 72.17578941147787,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      46.0,
+      190.0,
+      114.0,
+      69.0
+    ],
+    "gt_xywh": [
+      132.455,
+      149.325,
+      15.915,
+      26.904
+    ]
+  },
+  {
+    "sequence": "video_0076",
+    "frame_index": 37,
+    "iou": 0.0,
+    "center_error": 63.54049703018146,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      60.0,
+      155.0,
+      64.0,
+      99.0
+    ],
+    "gt_xywh": [
+      133.212,
+      150.462,
+      14.399,
+      25.767
+    ]
+  },
+  {
+    "sequence": "video_0076",
+    "frame_index": 34,
+    "iou": 0.0,
+    "center_error": 57.5955571576706,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      158.0,
+      142.0,
+      80.0,
+      58.0
+    ],
+    "gt_xywh": [
+      133.591,
+      150.083,
+      15.157,
+      23.115
+    ]
+  },
+  {
+    "sequence": "video_0076",
+    "frame_index": 35,
+    "iou": 0.0,
+    "center_error": 57.55074867725441,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      161.0,
+      141.0,
+      71.0,
+      60.0
+    ],
+    "gt_xywh": [
+      131.318,
+      150.841,
+      16.673,
+      22.357
+    ]
+  },
+  {
+    "sequence": "video_0076",
+    "frame_index": 33,
+    "iou": 0.0,
+    "center_error": 56.92681499972134,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      161.0,
+      142.0,
+      74.0,
+      57.0
+    ],
+    "gt_xywh": [
+      133.212,
+      152.357,
+      16.673,
+      21.599
+    ]
+  },
+  {
+    "sequence": "video_0032",
+    "frame_index": 965,
+    "iou": 0.0,
+    "center_error": 52.91616307655911,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      86.0,
+      75.0,
+      35.0,
+      74.0
+    ],
+    "gt_xywh": [
+      134.834,
+      117.996,
+      25.546,
+      46.476
+    ]
+  },
+  {
+    "sequence": "video_0076",
+    "frame_index": 50,
+    "iou": 0.0,
+    "center_error": 49.02037393688976,
+    "failure_type": "scale_mismatch",
+    "pred_xywh": [
+      86.0,
+      94.0,
+      44.0,
+      41.0
+    ],
+    "gt_xywh": [
+      119.571,
+      145.536,
+      25.388,
+      23.115
+    ]
+  },
+  {
+    "sequence": "video_0076",
+    "frame_index": 29,
+    "iou": 0.0,
+    "center_error": 45.700238411686655,
+    "failure_type": "scale_mismatch",
+    "pred_xywh": [
+      108.0,
+      178.0,
+      51.0,
+      60.0
+    ],
+    "gt_xywh": [
+      133.97,
+      154.252,
+      16.673,
+      17.81
+    ]
+  },
+  {
+    "sequence": "video_0076",
+    "frame_index": 28,
+    "iou": 0.0,
+    "center_error": 38.56925222003274,
+    "failure_type": "scale_mismatch",
+    "pred_xywh": [
+      159.0,
+      140.0,
+      49.0,
+      46.0
+    ],
+    "gt_xywh": [
+      133.97,
+      153.872,
+      21.978,
+      21.22
+    ]
+  },
+  {
+    "sequence": "video_0076",
+    "frame_index": 47,
+    "iou": 0.0,
+    "center_error": 29.411490514465612,
+    "failure_type": "scale_mismatch",
+    "pred_xywh": [
+      90.0,
+      135.0,
+      39.0,
+      51.0
+    ],
+    "gt_xywh": [
+      129.423,
+      146.294,
+      18.946,
+      26.525
+    ]
+  },
+  {
+    "sequence": "video_0076",
+    "frame_index": 48,
+    "iou": 0.0,
+    "center_error": 28.806768786042273,
+    "failure_type": "scale_mismatch",
+    "pred_xywh": [
+      92.0,
+      137.0,
+      34.0,
+      45.0
+    ],
+    "gt_xywh": [
+      127.907,
+      146.673,
+      19.704,
+      22.357
+    ]
+  }
+]

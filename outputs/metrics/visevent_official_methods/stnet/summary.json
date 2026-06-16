@@ -1,0 +1,12 @@
+{
+  "tracker": "stnet",
+  "sequences": 172,
+  "frames": 93805,
+  "auc_micro": 0.29039027137082873,
+  "pr20_micro": 0.40340067160599113,
+  "auc_sequence_weighted": 0.2903902713708288,
+  "pr20_sequence_weighted": 0.40340067160599113,
+  "mean_iou": 0.2865565931870178,
+  "mean_center_error": 56.79713383145128,
+  "absent_filter": true
+}

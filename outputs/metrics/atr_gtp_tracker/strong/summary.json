@@ -1,0 +1,12 @@
+{
+  "tracker": "ATR-GTP-strong",
+  "sequences": 5,
+  "frames": 10184,
+  "auc_micro": 0.6056724584477301,
+  "pr20_micro": 0.9209544383346425,
+  "auc_sequence_weighted": 0.6056724584477301,
+  "pr20_sequence_weighted": 0.9209544383346425,
+  "mean_iou": 0.6063983229438211,
+  "mean_center_error": 14.540327896059424,
+  "absent_filter": false
+}

@@ -1,0 +1,12 @@
+{
+  "tracker": "siamrpn",
+  "sequences": 172,
+  "frames": 93805,
+  "auc_micro": 0.160612203217017,
+  "pr20_micro": 0.24892063322850594,
+  "auc_sequence_weighted": 0.16061220321701694,
+  "pr20_sequence_weighted": 0.24892063322850594,
+  "mean_iou": 0.15395125290021594,
+  "mean_center_error": 88.15772645319554,
+  "absent_filter": true
+}

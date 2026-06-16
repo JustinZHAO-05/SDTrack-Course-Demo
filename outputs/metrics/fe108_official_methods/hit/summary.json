@@ -1,0 +1,12 @@
+{
+  "tracker": "hit",
+  "sequences": 32,
+  "frames": 59688,
+  "auc_micro": 0.5606515265519314,
+  "pr20_micro": 0.8791884465889291,
+  "auc_sequence_weighted": 0.5606515265519315,
+  "pr20_sequence_weighted": 0.8791884465889291,
+  "mean_iou": 0.5608618533820142,
+  "mean_center_error": 845.1686785979696,
+  "absent_filter": true
+}

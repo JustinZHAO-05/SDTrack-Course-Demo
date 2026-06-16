@@ -1,0 +1,12 @@
+{
+  "tracker": "sdtrack_base",
+  "sequences": 32,
+  "frames": 59688,
+  "auc_micro": 0.6014955988964398,
+  "pr20_micro": 0.9083065272751641,
+  "auc_sequence_weighted": 0.6014955988964396,
+  "pr20_sequence_weighted": 0.9083065272751641,
+  "mean_iou": 0.6021504631527139,
+  "mean_center_error": 843.6980929038693,
+  "absent_filter": true
+}

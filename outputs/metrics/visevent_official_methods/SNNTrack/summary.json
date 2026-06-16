@@ -1,0 +1,12 @@
+{
+  "tracker": "SNNTrack",
+  "sequences": 172,
+  "frames": 93805,
+  "auc_micro": 0.3160523120165542,
+  "pr20_micro": 0.4411811737114226,
+  "auc_sequence_weighted": 0.31605231201655426,
+  "pr20_sequence_weighted": 0.4411811737114226,
+  "mean_iou": 0.3121127013757693,
+  "mean_center_error": 60.05777226330763,
+  "absent_filter": true
+}

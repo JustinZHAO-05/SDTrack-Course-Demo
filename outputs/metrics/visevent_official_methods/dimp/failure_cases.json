@@ -1,0 +1,952 @@
+[
+  {
+    "sequence": "dvSave-2021_02_12_13_43_54",
+    "frame_index": 203,
+    "iou": 0.0,
+    "center_error": 351.7307949213894,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      261.0,
+      137.0,
+      224.0,
+      206.0
+    ],
+    "gt_xywh": [
+      0.0,
+      77.879,
+      71.728,
+      123.704
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_04_57_Duck",
+    "frame_index": 352,
+    "iou": 0.0,
+    "center_error": 347.49616401066214,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -12.0,
+      -12.0,
+      12.0,
+      12.0
+    ],
+    "gt_xywh": [
+      300.91,
+      144.799,
+      8.702,
+      7.4
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 511,
+    "iou": 0.0,
+    "center_error": 340.9446894292387,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      28.0,
+      16.0,
+      67.0
+    ],
+    "gt_xywh": [
+      342.25,
+      105.75,
+      3.75,
+      25.75
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_04_57_Duck",
+    "frame_index": 353,
+    "iou": 0.0,
+    "center_error": 340.3666872646801,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -9.0,
+      -10.0,
+      14.0,
+      13.0
+    ],
+    "gt_xywh": [
+      297.43,
+      144.364,
+      10.007,
+      8.706
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 512,
+    "iou": 0.0,
+    "center_error": 340.2004751337805,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      1.0,
+      20.0,
+      17.0,
+      67.0
+    ],
+    "gt_xywh": [
+      341.75,
+      98.0,
+      4.25,
+      36.375
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_04_57_Duck",
+    "frame_index": 346,
+    "iou": 0.0,
+    "center_error": 338.3200658576321,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -18.0,
+      -10.0,
+      20.0,
+      13.0
+    ],
+    "gt_xywh": [
+      280.026,
+      146.976,
+      19.144,
+      20.893
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_04_57_Duck",
+    "frame_index": 345,
+    "iou": 0.0,
+    "center_error": 337.10242040027316,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -19.0,
+      -4.0,
+      19.0,
+      14.0
+    ],
+    "gt_xywh": [
+      280.026,
+      147.846,
+      19.579,
+      20.458
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 513,
+    "iou": 0.0,
+    "center_error": 334.70318128181873,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      31.0,
+      19.0,
+      75.0
+    ],
+    "gt_xywh": [
+      335.104,
+      99.594,
+      10.896,
+      36.416
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 514,
+    "iou": 0.0,
+    "center_error": 334.37863657555937,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      20.0,
+      22.0,
+      69.0
+    ],
+    "gt_xywh": [
+      332.825,
+      98.332,
+      13.175,
+      38.101
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_04_57_Duck",
+    "frame_index": 349,
+    "iou": 0.0,
+    "center_error": 333.380082118972,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -19.0,
+      -13.0,
+      22.0,
+      13.0
+    ],
+    "gt_xywh": [
+      276.545,
+      151.328,
+      11.748,
+      11.752
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_04_57_Duck",
+    "frame_index": 348,
+    "iou": 0.0,
+    "center_error": 332.8268554010516,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -18.0,
+      -12.0,
+      20.0,
+      15.0
+    ],
+    "gt_xywh": [
+      276.545,
+      149.587,
+      13.923,
+      13.058
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_04_57_Duck",
+    "frame_index": 350,
+    "iou": 0.0,
+    "center_error": 331.9034421967216,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -19.0,
+      -13.0,
+      18.0,
+      14.0
+    ],
+    "gt_xywh": [
+      274.805,
+      151.764,
+      9.137,
+      9.576
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 509,
+    "iou": 0.0,
+    "center_error": 331.6658618858444,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      7.0,
+      18.0,
+      19.0,
+      66.0
+    ],
+    "gt_xywh": [
+      336.518,
+      100.832,
+      9.482,
+      35.002
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 510,
+    "iou": 0.0,
+    "center_error": 331.6280787566774,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      5.0,
+      17.0,
+      22.0,
+      71.0
+    ],
+    "gt_xywh": [
+      336.06,
+      101.368,
+      9.94,
+      33.912
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_05_43_Chicken",
+    "frame_index": 137,
+    "iou": 0.0,
+    "center_error": 330.1764641243376,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -229.0,
+      -134.0,
+      258.0,
+      153.0
+    ],
+    "gt_xywh": [
+      151.673,
+      135.659,
+      14.793,
+      23.07
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_04_57_Duck",
+    "frame_index": 347,
+    "iou": 0.0,
+    "center_error": 329.8122376874606,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -18.0,
+      0.0,
+      19.0,
+      14.0
+    ],
+    "gt_xywh": [
+      278.285,
+      147.846,
+      15.663,
+      14.799
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 516,
+    "iou": 0.0,
+    "center_error": 328.7909369850772,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      21.0,
+      21.0,
+      75.0
+    ],
+    "gt_xywh": [
+      326.972,
+      97.827,
+      14.142,
+      38.36
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 515,
+    "iou": 0.0,
+    "center_error": 326.1825600794745,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      52.0,
+      23.0,
+      75.0
+    ],
+    "gt_xywh": [
+      328.0,
+      97.5,
+      17.0,
+      39.5
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_05_43_Chicken",
+    "frame_index": 138,
+    "iou": 0.0,
+    "center_error": 325.29274408840183,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -248.0,
+      -102.0,
+      264.0,
+      151.0
+    ],
+    "gt_xywh": [
+      152.978,
+      133.918,
+      13.488,
+      24.375
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_04_57_Duck",
+    "frame_index": 351,
+    "iou": 0.0,
+    "center_error": 325.25231880826385,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -14.0,
+      -10.0,
+      15.0,
+      11.0
+    ],
+    "gt_xywh": [
+      273.064,
+      151.764,
+      6.526,
+      8.706
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_05_43_Chicken",
+    "frame_index": 139,
+    "iou": 0.0,
+    "center_error": 323.8300369043073,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -242.0,
+      -128.0,
+      293.0,
+      152.0
+    ],
+    "gt_xywh": [
+      154.719,
+      130.871,
+      15.228,
+      26.116
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 517,
+    "iou": 0.0,
+    "center_error": 320.3046652268314,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      2.0,
+      69.0,
+      20.0,
+      62.0
+    ],
+    "gt_xywh": [
+      325.382,
+      97.65,
+      12.905,
+      39.421
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_05_43_Chicken",
+    "frame_index": 136,
+    "iou": 0.0,
+    "center_error": 317.1282041143022,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -227.0,
+      -102.0,
+      236.0,
+      153.0
+    ],
+    "gt_xywh": [
+      151.238,
+      135.223,
+      12.618,
+      22.199
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_05_43_Chicken",
+    "frame_index": 134,
+    "iou": 0.0,
+    "center_error": 315.7859660993384,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -207.0,
+      -103.0,
+      216.0,
+      135.0
+    ],
+    "gt_xywh": [
+      150.803,
+      136.529,
+      13.053,
+      24.811
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_05_43_Chicken",
+    "frame_index": 133,
+    "iou": 0.0,
+    "center_error": 310.44660617228527,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -201.0,
+      -100.0,
+      207.0,
+      142.0
+    ],
+    "gt_xywh": [
+      150.368,
+      137.835,
+      13.053,
+      22.199
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_05_43_Chicken",
+    "frame_index": 135,
+    "iou": 0.0,
+    "center_error": 300.0490958391851,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -190.0,
+      -124.0,
+      240.0,
+      155.0
+    ],
+    "gt_xywh": [
+      151.238,
+      136.529,
+      14.358,
+      23.07
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_14_16_53_15_flag",
+    "frame_index": 801,
+    "iou": 0.0,
+    "center_error": 296.11520064627297,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      264.0,
+      -2.0,
+      82.0,
+      117.0
+    ],
+    "gt_xywh": [
+      0.0,
+      62.816,
+      21.661,
+      55.148
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_14_16_53_15_flag",
+    "frame_index": 802,
+    "iou": 0.0,
+    "center_error": 294.93612273611467,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      259.0,
+      -4.0,
+      85.0,
+      82.0
+    ],
+    "gt_xywh": [
+      0.0,
+      60.404,
+      22.006,
+      55.148
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_05_43_Chicken",
+    "frame_index": 132,
+    "iou": 0.0,
+    "center_error": 292.46650166691313,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -168.0,
+      -111.0,
+      202.0,
+      144.0
+    ],
+    "gt_xywh": [
+      147.757,
+      140.882,
+      13.488,
+      22.199
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_14_16_53_15_flag",
+    "frame_index": 803,
+    "iou": 0.0,
+    "center_error": 290.5674893076736,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      259.0,
+      -4.0,
+      85.0,
+      82.0
+    ],
+    "gt_xywh": [
+      0.0,
+      54.2,
+      29.242,
+      57.906
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_14_16_53_15_flag",
+    "frame_index": 804,
+    "iou": 0.0,
+    "center_error": 286.8932594426061,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      264.0,
+      -3.0,
+      82.0,
+      90.0
+    ],
+    "gt_xywh": [
+      0.0,
+      46.616,
+      40.614,
+      61.697
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_10_09_04_bottle",
+    "frame_index": 427,
+    "iou": 0.0,
+    "center_error": 284.7825827710413,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      1.0,
+      0.0,
+      24.0,
+      44.0
+    ],
+    "gt_xywh": [
+      230.728,
+      171.235,
+      23.421,
+      38.926
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_14_16_53_15_flag",
+    "frame_index": 800,
+    "iou": 0.0,
+    "center_error": 281.9651458035771,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      249.0,
+      8.0,
+      85.0,
+      108.0
+    ],
+    "gt_xywh": [
+      0.0,
+      63.506,
+      22.006,
+      54.459
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_14_16_53_15_flag",
+    "frame_index": 805,
+    "iou": 0.0,
+    "center_error": 276.8222840034243,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      264.0,
+      -3.0,
+      82.0,
+      90.0
+    ],
+    "gt_xywh": [
+      0.0,
+      42.48,
+      59.912,
+      61.697
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_05_43_Chicken",
+    "frame_index": 131,
+    "iou": 0.0,
+    "center_error": 269.82297986469297,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      -123.0,
+      -103.0,
+      181.0,
+      127.0
+    ],
+    "gt_xywh": [
+      148.192,
+      143.494,
+      13.488,
+      22.199
+    ]
+  },
+  {
+    "sequence": "tennis_long_002",
+    "frame_index": 386,
+    "iou": 0.0,
+    "center_error": 268.41833462128665,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      5.0,
+      82.0,
+      24.0,
+      52.0
+    ],
+    "gt_xywh": [
+      281.035,
+      94.868,
+      8.742,
+      31.503
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_15_13_13_44_whitecar",
+    "frame_index": 105,
+    "iou": 0.0,
+    "center_error": 264.70715214064387,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      323.0,
+      123.0,
+      8.0,
+      9.0
+    ],
+    "gt_xywh": [
+      62.995,
+      182.392,
+      12.689,
+      11.562
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_10_09_04_bottle",
+    "frame_index": 428,
+    "iou": 0.0,
+    "center_error": 264.5792565872276,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      1.0,
+      0.0,
+      24.0,
+      44.0
+    ],
+    "gt_xywh": [
+      203.679,
+      174.863,
+      20.452,
+      38.596
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_47_49_personBasketball",
+    "frame_index": 494,
+    "iou": 0.0,
+    "center_error": 262.67830621324634,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      308.0,
+      136.0,
+      41.0,
+      73.0
+    ],
+    "gt_xywh": [
+      48.636,
+      90.085,
+      39.255,
+      93.355
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_49_51_personBasketball",
+    "frame_index": 220,
+    "iou": 0.0,
+    "center_error": 260.7913710951438,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      20.0,
+      132.0,
+      41.0,
+      82.0
+    ],
+    "gt_xywh": [
+      276.581,
+      113.506,
+      49.152,
+      102.262
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_47_49_personBasketball",
+    "frame_index": 495,
+    "iou": 0.0,
+    "center_error": 258.7030323068759,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      305.0,
+      132.0,
+      40.0,
+      77.0
+    ],
+    "gt_xywh": [
+      49.296,
+      88.765,
+      38.596,
+      94.675
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_47_49_personBasketball",
+    "frame_index": 497,
+    "iou": 0.0,
+    "center_error": 258.4737183679851,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      305.0,
+      138.0,
+      37.0,
+      77.0
+    ],
+    "gt_xywh": [
+      48.636,
+      90.085,
+      38.926,
+      93.355
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_04_21_18_52",
+    "frame_index": 197,
+    "iou": 0.0,
+    "center_error": 258.34794468748925,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      283.0,
+      133.0,
+      20.0,
+      53.0
+    ],
+    "gt_xywh": [
+      24.647,
+      152.468,
+      21.545,
+      53.863
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_47_49_personBasketball",
+    "frame_index": 498,
+    "iou": 0.0,
+    "center_error": 257.82183176655155,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      305.0,
+      138.0,
+      37.0,
+      77.0
+    ],
+    "gt_xywh": [
+      48.636,
+      90.085,
+      40.245,
+      93.355
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_06_17_47_49_personBasketball",
+    "frame_index": 496,
+    "iou": 0.0,
+    "center_error": 257.23107618572254,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      303.0,
+      134.0,
+      40.0,
+      78.0
+    ],
+    "gt_xywh": [
+      49.296,
+      88.765,
+      38.266,
+      94.675
+    ]
+  },
+  {
+    "sequence": "video_0056",
+    "frame_index": 626,
+    "iou": 0.0,
+    "center_error": 257.022481731234,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      303.0,
+      97.0,
+      18.0,
+      44.0
+    ],
+    "gt_xywh": [
+      45.612,
+      98.477,
+      18.758,
+      46.232
+    ]
+  },
+  {
+    "sequence": "video_0021",
+    "frame_index": 730,
+    "iou": 0.0,
+    "center_error": 257.0089656559864,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      51.0,
+      -10.0,
+      9.0,
+      14.0
+    ],
+    "gt_xywh": [
+      152.218,
+      203.588,
+      35.957,
+      46.817
+    ]
+  },
+  {
+    "sequence": "video_0021",
+    "frame_index": 733,
+    "iou": 0.0,
+    "center_error": 256.7900958165492,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      52.0,
+      -13.0,
+      10.0,
+      16.0
+    ],
+    "gt_xywh": [
+      151.888,
+      201.253,
+      37.936,
+      47.832
+    ]
+  },
+  {
+    "sequence": "dvSave-2021_02_04_21_18_52",
+    "frame_index": 198,
+    "iou": 0.0,
+    "center_error": 256.09071864701093,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      282.0,
+      134.0,
+      22.0,
+      56.0
+    ],
+    "gt_xywh": [
+      21.569,
+      152.776,
+      31.702,
+      50.785
+    ]
+  },
+  {
+    "sequence": "video_0021",
+    "frame_index": 737,
+    "iou": 0.0,
+    "center_error": 256.0873284800763,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      51.0,
+      -16.0,
+      18.0,
+      18.0
+    ],
+    "gt_xywh": [
+      152.218,
+      200.264,
+      37.276,
+      47.172
+    ]
+  }
+]

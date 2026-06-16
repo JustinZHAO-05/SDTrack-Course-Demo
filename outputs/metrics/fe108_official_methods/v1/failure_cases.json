@@ -1,0 +1,952 @@
+[
+  {
+    "sequence": "giraffe_low",
+    "frame_index": 1327,
+    "iou": 0.0,
+    "center_error": 17512939.881001797,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      156.0,
+      118.0,
+      18.0,
+      26.0
+    ],
+    "gt_xywh": [
+      -10846155.436,
+      13750054.5,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sequence": "giraffe_low",
+    "frame_index": 1326,
+    "iou": 0.0,
+    "center_error": 16221868.326656476,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      151.0,
+      122.0,
+      16.0,
+      24.0
+    ],
+    "gt_xywh": [
+      -10049234.868,
+      12734288.66,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sequence": "giraffe_low",
+    "frame_index": 10,
+    "iou": 0.0,
+    "center_error": 15689521.93093219,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      96.0,
+      98.0,
+      13.0,
+      34.0
+    ],
+    "gt_xywh": [
+      -9469141.496,
+      12509891.839,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "sequence": "dove_mul",
+    "frame_index": 295,
+    "iou": 0.0,
+    "center_error": 260.2757536833756,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      245.0,
+      0.0,
+      50.0,
+      50.0
+    ],
+    "gt_xywh": [
+      34.591,
+      149.256,
+      40.526,
+      44.444
+    ]
+  },
+  {
+    "sequence": "elephant222",
+    "frame_index": 971,
+    "iou": 0.0,
+    "center_error": 194.77267537389372,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      86.0,
+      106.0,
+      43.0,
+      26.0
+    ],
+    "gt_xywh": [
+      279.63,
+      176.901,
+      19.339,
+      23.988
+    ]
+  },
+  {
+    "sequence": "giraffe_motion",
+    "frame_index": 749,
+    "iou": 0.0,
+    "center_error": 192.6791374280049,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      47.0,
+      53.0,
+      30.0,
+      35.0
+    ],
+    "gt_xywh": [
+      216.0,
+      141.0,
+      22.0,
+      58.0
+    ]
+  },
+  {
+    "sequence": "elephant222",
+    "frame_index": 976,
+    "iou": 0.0,
+    "center_error": 189.33477906850428,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      105.0,
+      115.0,
+      37.0,
+      43.0
+    ],
+    "gt_xywh": [
+      300.718,
+      156.05,
+      19.302,
+      21.811
+    ]
+  },
+  {
+    "sequence": "elephant222",
+    "frame_index": 973,
+    "iou": 0.0,
+    "center_error": 186.60753766778157,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      102.0,
+      132.0,
+      31.0,
+      41.0
+    ],
+    "gt_xywh": [
+      292.076,
+      171.795,
+      19.083,
+      22.17
+    ]
+  },
+  {
+    "sequence": "star_mul",
+    "frame_index": 1246,
+    "iou": 0.0,
+    "center_error": 186.2272784348637,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      25.0,
+      0.0,
+      36.0,
+      10.0
+    ],
+    "gt_xywh": [
+      72.157,
+      173.527,
+      33.094,
+      24.01
+    ]
+  },
+  {
+    "sequence": "dove_mul",
+    "frame_index": 346,
+    "iou": 0.0,
+    "center_error": 183.53627030728907,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      295.0,
+      38.0,
+      50.0,
+      71.0
+    ],
+    "gt_xywh": [
+      123.217,
+      111.538,
+      44.571,
+      37.701
+    ]
+  },
+  {
+    "sequence": "dove_mul",
+    "frame_index": 348,
+    "iou": 0.0,
+    "center_error": 182.78704860348438,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      295.0,
+      43.0,
+      50.0,
+      55.0
+    ],
+    "gt_xywh": [
+      122.36,
+      108.525,
+      46.964,
+      34.949
+    ]
+  },
+  {
+    "sequence": "dove_mul",
+    "frame_index": 349,
+    "iou": 0.0,
+    "center_error": 182.02696168559422,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      303.0,
+      50.0,
+      42.0,
+      67.0
+    ],
+    "gt_xywh": [
+      122.102,
+      107.255,
+      48.844,
+      33.388
+    ]
+  },
+  {
+    "sequence": "elephant222",
+    "frame_index": 975,
+    "iou": 0.0,
+    "center_error": 181.38699756561408,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      111.0,
+      115.0,
+      38.0,
+      43.0
+    ],
+    "gt_xywh": [
+      298.279,
+      161.182,
+      19.179,
+      21.739
+    ]
+  },
+  {
+    "sequence": "dove_mul",
+    "frame_index": 345,
+    "iou": 0.0,
+    "center_error": 180.12337500457483,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      289.0,
+      42.0,
+      54.0,
+      68.0
+    ],
+    "gt_xywh": [
+      123.011,
+      113.582,
+      44.361,
+      39.185
+    ]
+  },
+  {
+    "sequence": "cup222",
+    "frame_index": 1880,
+    "iou": 0.0,
+    "center_error": 179.90341051453825,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      6.0,
+      208.0,
+      71.0,
+      44.0
+    ],
+    "gt_xywh": [
+      203.019,
+      185.265,
+      31.349,
+      27.247
+    ]
+  },
+  {
+    "sequence": "dove_mul",
+    "frame_index": 347,
+    "iou": 0.0,
+    "center_error": 179.41394954661337,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      287.0,
+      44.0,
+      58.0,
+      54.0
+    ],
+    "gt_xywh": [
+      123.326,
+      109.93,
+      45.112,
+      36.144
+    ]
+  },
+  {
+    "sequence": "elephant222",
+    "frame_index": 974,
+    "iou": 0.0,
+    "center_error": 178.87700835823813,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      111.0,
+      122.0,
+      39.0,
+      44.0
+    ],
+    "gt_xywh": [
+      296.266,
+      168.708,
+      19.087,
+      21.68
+    ]
+  },
+  {
+    "sequence": "star_mul",
+    "frame_index": 1245,
+    "iou": 0.0,
+    "center_error": 177.06606007850027,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      6.0,
+      0.0,
+      43.0,
+      22.0
+    ],
+    "gt_xywh": [
+      68.488,
+      166.045,
+      32.785,
+      24.932
+    ]
+  },
+  {
+    "sequence": "star_mul",
+    "frame_index": 1244,
+    "iou": 0.0,
+    "center_error": 172.68436342951884,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      4.0,
+      0.0,
+      40.0,
+      16.0
+    ],
+    "gt_xywh": [
+      67.878,
+      156.99,
+      32.293,
+      25.853
+    ]
+  },
+  {
+    "sequence": "elephant222",
+    "frame_index": 972,
+    "iou": 0.0,
+    "center_error": 172.57565897790835,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      106.0,
+      135.0,
+      44.0,
+      26.0
+    ],
+    "gt_xywh": [
+      286.713,
+      174.622,
+      19.199,
+      22.998
+    ]
+  },
+  {
+    "sequence": "cup222",
+    "frame_index": 2009,
+    "iou": 0.0,
+    "center_error": 171.77092666371607,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      295.0,
+      108.0,
+      34.0,
+      31.0
+    ],
+    "gt_xywh": [
+      144.592,
+      182.216,
+      26.215,
+      33.521
+    ]
+  },
+  {
+    "sequence": "dog_motion",
+    "frame_index": 1749,
+    "iou": 0.0,
+    "center_error": 170.49062240216892,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      108.0,
+      0.0,
+      81.0,
+      41.0
+    ],
+    "gt_xywh": [
+      75.274,
+      157.044,
+      53.43,
+      54.959
+    ]
+  },
+  {
+    "sequence": "dove_mul",
+    "frame_index": 344,
+    "iou": 0.0,
+    "center_error": 168.32693122236157,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      276.0,
+      43.0,
+      56.0,
+      69.0
+    ],
+    "gt_xywh": [
+      124.234,
+      116.102,
+      44.086,
+      40.393
+    ]
+  },
+  {
+    "sequence": "star_motion",
+    "frame_index": 2121,
+    "iou": 0.0,
+    "center_error": 165.37463493579168,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      221.0,
+      64.0,
+      41.0,
+      27.0
+    ],
+    "gt_xywh": [
+      137.529,
+      207.942,
+      18.413,
+      10.177
+    ]
+  },
+  {
+    "sequence": "star_mul",
+    "frame_index": 1278,
+    "iou": 0.0,
+    "center_error": 164.94530089871242,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      5.0,
+      0.0,
+      44.0,
+      28.0
+    ],
+    "gt_xywh": [
+      163.277,
+      68.769,
+      26.845,
+      28.983
+    ]
+  },
+  {
+    "sequence": "dog_motion",
+    "frame_index": 1747,
+    "iou": 0.0,
+    "center_error": 163.85198744894166,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      89.0,
+      5.0,
+      84.0,
+      49.0
+    ],
+    "gt_xywh": [
+      50.402,
+      157.08,
+      52.578,
+      54.02
+    ]
+  },
+  {
+    "sequence": "elephant222",
+    "frame_index": 970,
+    "iou": 0.0,
+    "center_error": 162.30162966459852,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      107.0,
+      142.0,
+      35.0,
+      21.0
+    ],
+    "gt_xywh": [
+      272.787,
+      176.914,
+      19.559,
+      24.844
+    ]
+  },
+  {
+    "sequence": "dog_motion",
+    "frame_index": 1750,
+    "iou": 0.0,
+    "center_error": 160.52328048115828,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      115.0,
+      5.0,
+      66.0,
+      42.0
+    ],
+    "gt_xywh": [
+      87.409,
+      155.157,
+      53.229,
+      55.458
+    ]
+  },
+  {
+    "sequence": "dog_motion",
+    "frame_index": 1748,
+    "iou": 0.0,
+    "center_error": 160.3429079344207,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      93.0,
+      8.0,
+      76.0,
+      46.0
+    ],
+    "gt_xywh": [
+      63.718,
+      158.818,
+      53.531,
+      54.643
+    ]
+  },
+  {
+    "sequence": "fighter_mul",
+    "frame_index": 959,
+    "iou": 0.0,
+    "center_error": 160.11603717048237,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      183.0,
+      0.0,
+      65.0,
+      33.0
+    ],
+    "gt_xywh": [
+      171.366,
+      164.536,
+      54.706,
+      22.396
+    ]
+  },
+  {
+    "sequence": "bike333",
+    "frame_index": 28,
+    "iou": 0.0,
+    "center_error": 160.01528283283616,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      51.0,
+      14.0,
+      44.0
+    ],
+    "gt_xywh": [
+      134.87,
+      98.732,
+      48.628,
+      47.431
+    ]
+  },
+  {
+    "sequence": "star_mul",
+    "frame_index": 1279,
+    "iou": 0.0,
+    "center_error": 159.72908437964912,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      0.0,
+      46.0,
+      31.0
+    ],
+    "gt_xywh": [
+      154.663,
+      66.886,
+      27.956,
+      28.407
+    ]
+  },
+  {
+    "sequence": "star_mul",
+    "frame_index": 1243,
+    "iou": 0.0,
+    "center_error": 159.46031924823168,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      6.0,
+      1.0,
+      35.0,
+      28.0
+    ],
+    "gt_xywh": [
+      66.84,
+      149.749,
+      31.522,
+      26.71
+    ]
+  },
+  {
+    "sequence": "dog_motion",
+    "frame_index": 1736,
+    "iou": 0.0,
+    "center_error": 159.37950956459778,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      88.0,
+      2.0,
+      83.0,
+      47.0
+    ],
+    "gt_xywh": [
+      10.503,
+      133.789,
+      56.106,
+      45.193
+    ]
+  },
+  {
+    "sequence": "giraffe_motion",
+    "frame_index": 626,
+    "iou": 0.0,
+    "center_error": 157.9248238878233,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      7.0,
+      49.0,
+      20.0,
+      37.0
+    ],
+    "gt_xywh": [
+      138.0,
+      135.0,
+      14.0,
+      50.0
+    ]
+  },
+  {
+    "sequence": "cup222",
+    "frame_index": 1875,
+    "iou": 0.0,
+    "center_error": 157.60164016721131,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      7.0,
+      185.0,
+      69.0,
+      58.0
+    ],
+    "gt_xywh": [
+      182.931,
+      195.549,
+      32.155,
+      26.032
+    ]
+  },
+  {
+    "sequence": "bottle_mul222",
+    "frame_index": 682,
+    "iou": 0.0,
+    "center_error": 157.388979631908,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      39.0,
+      42.0,
+      22.0,
+      55.0
+    ],
+    "gt_xywh": [
+      142.007,
+      158.712,
+      22.008,
+      59.567
+    ]
+  },
+  {
+    "sequence": "star_motion",
+    "frame_index": 816,
+    "iou": 0.0,
+    "center_error": 156.59812411243166,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      83.0,
+      4.0,
+      32.0,
+      28.0
+    ],
+    "gt_xywh": [
+      240.208,
+      17.793,
+      29.191,
+      31.934
+    ]
+  },
+  {
+    "sequence": "bike333",
+    "frame_index": 27,
+    "iou": 0.0,
+    "center_error": 156.02333026337303,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      0.0,
+      45.0,
+      36.0,
+      35.0
+    ],
+    "gt_xywh": [
+      136.405,
+      101.248,
+      49.189,
+      47.316
+    ]
+  },
+  {
+    "sequence": "cup222",
+    "frame_index": 1879,
+    "iou": 0.0,
+    "center_error": 153.6347437152008,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      26.0,
+      222.0,
+      81.0,
+      34.0
+    ],
+    "gt_xywh": [
+      199.863,
+      188.823,
+      31.555,
+      26.578
+    ]
+  },
+  {
+    "sequence": "dog_motion",
+    "frame_index": 1738,
+    "iou": 0.0,
+    "center_error": 153.41503567482354,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      76.0,
+      0.0,
+      77.0,
+      37.0
+    ],
+    "gt_xywh": [
+      9.298,
+      127.633,
+      55.309,
+      46.479
+    ]
+  },
+  {
+    "sequence": "giraffe_motion",
+    "frame_index": 625,
+    "iou": 0.0,
+    "center_error": 153.33134056676084,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      7.0,
+      50.0,
+      19.0,
+      31.0
+    ],
+    "gt_xywh": [
+      134.0,
+      130.0,
+      14.0,
+      50.0
+    ]
+  },
+  {
+    "sequence": "dog_motion",
+    "frame_index": 1745,
+    "iou": 0.0,
+    "center_error": 152.99369911147028,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      66.0,
+      6.0,
+      70.0,
+      54.0
+    ],
+    "gt_xywh": [
+      34.558,
+      154.479,
+      50.796,
+      51.812
+    ]
+  },
+  {
+    "sequence": "dog_motion",
+    "frame_index": 1737,
+    "iou": 0.0,
+    "center_error": 152.66249256915367,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      74.0,
+      1.0,
+      79.0,
+      40.0
+    ],
+    "gt_xywh": [
+      10.13,
+      130.766,
+      55.767,
+      45.854
+    ]
+  },
+  {
+    "sequence": "giraffe_motion",
+    "frame_index": 631,
+    "iou": 0.0,
+    "center_error": 152.5,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      42.0,
+      66.0,
+      18.0,
+      26.0
+    ],
+    "gt_xywh": [
+      167.0,
+      145.0,
+      12.0,
+      51.0
+    ]
+  },
+  {
+    "sequence": "bottle_mul222",
+    "frame_index": 681,
+    "iou": 0.0,
+    "center_error": 151.23001936133997,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      44.0,
+      42.0,
+      22.0,
+      55.0
+    ],
+    "gt_xywh": [
+      140.185,
+      155.197,
+      23.721,
+      60.578
+    ]
+  },
+  {
+    "sequence": "fighter_mul",
+    "frame_index": 960,
+    "iou": 0.0,
+    "center_error": 151.06433853670512,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      177.0,
+      12.0,
+      62.0,
+      33.0
+    ],
+    "gt_xywh": [
+      169.781,
+      167.571,
+      55.754,
+      23.279
+    ]
+  },
+  {
+    "sequence": "giraffe_motion",
+    "frame_index": 624,
+    "iou": 0.0,
+    "center_error": 150.65855435387664,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      10.0,
+      46.0,
+      13.0,
+      28.0
+    ],
+    "gt_xywh": [
+      132.0,
+      122.0,
+      15.0,
+      50.0
+    ]
+  },
+  {
+    "sequence": "bottle_mul222",
+    "frame_index": 550,
+    "iou": 0.0,
+    "center_error": 150.52743359491487,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      104.0,
+      50.0,
+      27.0,
+      54.0
+    ],
+    "gt_xywh": [
+      220.907,
+      146.183,
+      22.569,
+      56.616
+    ]
+  },
+  {
+    "sequence": "elephant222",
+    "frame_index": 969,
+    "iou": 0.0,
+    "center_error": 150.26615753437494,
+    "failure_type": "target_lost_or_background_absorption",
+    "pred_xywh": [
+      112.0,
+      149.0,
+      29.0,
+      27.0
+    ],
+    "gt_xywh": [
+      264.312,
+      177.517,
+      19.671,
+      25.832
+    ]
+  }
+]

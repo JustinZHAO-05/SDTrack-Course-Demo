@@ -1,0 +1,12 @@
+{
+  "tracker": "SDTrack-base",
+  "sequences": 172,
+  "frames": 93805,
+  "auc_micro": 0.3449334806088679,
+  "pr20_micro": 0.45188422791962046,
+  "auc_sequence_weighted": 0.3449334806088679,
+  "pr20_sequence_weighted": 0.45188422791962046,
+  "mean_iou": 0.3413983742898461,
+  "mean_center_error": 57.95118380423178,
+  "absent_filter": true
+}

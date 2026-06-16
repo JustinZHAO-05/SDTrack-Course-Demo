@@ -1,0 +1,12 @@
+{
+  "tracker": "Local-SDTrack-Tiny-FE108",
+  "sequences": 32,
+  "frames": 59688,
+  "auc_micro": 0.5935647545454183,
+  "pr20_micro": 0.9103002278514944,
+  "auc_sequence_weighted": 0.5935647545454182,
+  "pr20_sequence_weighted": 0.9103002278514944,
+  "mean_iou": 0.5941750010029168,
+  "mean_center_error": 843.1677501461646,
+  "absent_filter": true
+}

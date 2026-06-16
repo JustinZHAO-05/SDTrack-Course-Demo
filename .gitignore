@@ -1,0 +1,93 @@
+# Python/runtime
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Local secrets and transient downloads
+.env
+.env.*
+*.part
+*.tmp
+*.bak
+
+# Course/private planning materials not required for public reproduction
+Assignment_Insturctions/
+Plan.md
+Plan.pdf
+SDTrack.pdf
+
+# Full local datasets and local data-drive links
+data/FE108
+data/VisEvent
+data/official_results_E
+data/weights/
+data/**/*.part
+data/official_results/*.zip
+external_data/
+
+# LaTeX build noise
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.xdv
+
+# Most generated outputs are reproducible or too large for the source repo.
+outputs/*
+
+# Final deliverables kept in the repo through Git LFS.
+!outputs/*.pdf
+!outputs/*.pptx
+
+# Minimal checkpoint required by the live demo.
+!outputs/checkpoints/
+outputs/checkpoints/*
+!outputs/checkpoints/train/
+outputs/checkpoints/train/*
+!outputs/checkpoints/train/SDTrack/
+outputs/checkpoints/train/SDTrack/*
+!outputs/checkpoints/train/SDTrack/SDTrack-tiny-fe108/
+!outputs/checkpoints/train/SDTrack/SDTrack-tiny-fe108/SDTrack_ep0100.pth.tar
+
+# Report assets required for fast LaTeX rebuilds.
+!outputs/figures/
+!outputs/figures/**
+!outputs/cases/
+!outputs/cases/**
+!outputs/paper_figures/
+!outputs/paper_figures/**
+!outputs/tables/
+!outputs/tables/**
+!outputs/pdf/
+outputs/pdf/*
+!outputs/pdf/main.pdf
+
+# Metrics and lightweight prediction files used by plotting scripts.
+!outputs/metrics/
+!outputs/metrics/**
+!outputs/test/
+!outputs/test/**
+
+# Keep ATR-GTP protocol/stat CSVs, not generated image variants.
+!outputs/gtp_ablation/
+outputs/gtp_ablation/**
+!outputs/gtp_ablation/*.csv
+
+# Local previews, demo runs, videos, and large intermediate experiment products.
+outputs/atr_gtp_tracking/
+outputs/demo/
+outputs/sequence_viz/
+outputs/manual-sdtrack/
+outputs/pdf_preview*/
+outputs/qa_appendix/
+outputs/logs/
+outputs/gtp_sample/

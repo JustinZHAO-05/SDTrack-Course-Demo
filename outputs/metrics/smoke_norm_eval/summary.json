@@ -1,0 +1,14 @@
+{
+  "tracker": "smoke_norm_eval",
+  "sequences": 1,
+  "frames": 2122,
+  "auc_micro": 0.5974981569787516,
+  "pr20_micro": 0.9792648444863337,
+  "norm_precision_020_micro": 0.6065032987747409,
+  "auc_sequence_weighted": 0.5974981569787516,
+  "pr20_sequence_weighted": 0.9792648444863337,
+  "norm_precision_020_sequence_weighted": 0.6065032987747409,
+  "mean_iou": 0.5983434112446967,
+  "mean_center_error": 8.109228691920494,
+  "absent_filter": false
+}

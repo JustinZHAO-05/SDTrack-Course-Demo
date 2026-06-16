@@ -1,0 +1,8 @@
+﻿variant,mode,beta,beta0,beta_min,beta_max,ema,description
+baseline,fixed,1.0,,,,,Official GTP trajectory channel weight used as the reporting baseline.
+zero,fixed,0.0,,,,,Remove the trajectory channel.
+weak,fixed,0.5,,,,,Suppress global trajectory memory.
+fixed1,fixed,1.0,,,,,Explicit beta=1.0 ablation for comparison with the named baseline.
+strong,fixed,1.5,,,,,Amplify global trajectory memory.
+adaptive,adaptive,,1.0,0.6,1.4,,ATR-GTP event-density adaptive trajectory reweighting.
+adaptive_smooth,adaptive_smooth,,1.0,0.6,1.4,0.65,ATR-GTP with temporal smoothing on beta to reduce frame-to-frame jitter.
