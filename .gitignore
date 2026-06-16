@@ -24,7 +24,8 @@ SDTrack.pdf
 data/FE108
 data/VisEvent
 data/official_results_E
-data/weights/
+data/weights/*
+!data/weights/SDTrack-tiny-1x4.pth
 data/**/*.part
 data/official_results/*.zip
 external_data/

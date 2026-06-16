@@ -133,14 +133,14 @@
 
 ### Clone 后先拉取 Git LFS 资源
 
-本仓库使用 Git LFS 保存 checkpoint、demo 输入帧、最终 PDF/PPTX 和主要二进制图片资源。首次 clone 后必须执行：
+本仓库使用 Git LFS 保存 checkpoint、SNN 初始化权重、demo 输入帧、最终 PDF/PPTX 和主要二进制图片资源。首次 clone 后必须执行：
 
 ```powershell
 git lfs install
 git lfs pull
 ```
 
-如果跳过该步骤，部分 `.png`、`.pdf`、`.pptx` 或 `.pth.tar` 文件会只是很小的 LFS pointer 文本，默认 demo 会因为缺少真实 checkpoint 或输入帧而失败。
+如果跳过该步骤，部分 `.png`、`.pdf`、`.pptx`、`.pth` 或 `.pth.tar` 文件会只是很小的 LFS pointer 文本，默认 demo 会因为缺少真实权重或输入帧而失败。
 
 ### 推荐环境
 
@@ -242,7 +242,7 @@ data/resource_manifest.json
 - `-ExtractDatasets none|fe108|visevent|all`：选择解压的数据集。
 - `-SkipOfficialExtract`：跳过官方结果包解压。
 
-如果只做默认现场 demo，不需要完整数据集，只需要 `demo_assets` 和 checkpoint。
+如果只做默认现场 demo，不需要完整数据集，只需要 `demo_assets`、`data/weights/SDTrack-tiny-1x4.pth` 和 checkpoint。
 
 ## 4. 命令行入口
 
@@ -530,7 +530,7 @@ outputs/demo/<timestamp>/index.html
 
 实机 demo 的阶段包括：
 
-1. 预检查 CUDA、checkpoint、数据、官方 test 入口。
+1. 预检查 CUDA、checkpoint、SNN 初始化权重、数据、官方 test 入口。
 2. 调用官方 `tracking/test.py` 跑原始 SDTrack-Tiny。
 3. 生成 ATR-GTP adaptive_smooth 输入。
 4. 再次调用官方 `tracking/test.py` 跑改进后跟踪器。
@@ -600,7 +600,7 @@ outputs/demo/<timestamp>/
 ### 换电脑运行 demo 的注意事项
 
 1. 不建议复制 `.venv`，应重新创建环境并安装依赖。
-2. 默认 demo 使用 `demo_assets`，无需完整 FE108 数据。
+2. 默认 demo 使用 `demo_assets`，无需完整 FE108 数据，但需要通过 Git LFS 拉取 checkpoint 和 SNN 初始化权重。
 3. 实机推理需要 CUDA 可用；CUDA 不可用时用 `-ReplayOnly`。
 4. 若浏览器打不开原始 MP4，dashboard 默认使用 H.264 的 `_browser.mp4` 和 GIF 预览。
 5. 若要跑完整 FE108 或额外序列，需要重新放置完整数据到 `data/FE108/test`。

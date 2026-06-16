@@ -516,10 +516,11 @@ def precheck(state: DemoState) -> dict[str, Path]:
     source_root = sequence_source_root(repo, state.sequences)
     data_root = source_root.parent
     checkpoint = repo / "outputs" / "checkpoints" / "train" / "SDTrack" / "SDTrack-tiny-fe108" / "SDTrack_ep0100.pth.tar"
+    pretrained_weight = repo / "data" / "weights" / "SDTrack-tiny-1x4.pth"
     gt_dir = sequence_gt_dir(repo, state.sequences)
 
     missing: list[str] = []
-    for path in [python, official_root / "tracking" / "test.py", source_root, checkpoint, gt_dir]:
+    for path in [python, official_root / "tracking" / "test.py", source_root, checkpoint, pretrained_weight, gt_dir]:
         if not path.exists():
             missing.append(str(path))
     for sequence in state.sequences:
@@ -556,6 +557,7 @@ def precheck(state: DemoState) -> dict[str, Path]:
         "cuda_available": bool(info.get("cuda", False)),
         "gpu": str(info.get("gpu", "")),
         "checkpoint": "outputs/checkpoints/train/SDTrack/SDTrack-tiny-fe108/SDTrack_ep0100.pth.tar",
+        "pretrained_weight": "data/weights/SDTrack-tiny-1x4.pth",
         "official_test_entry": "external/SDTrack/SDTrack-Event/tracking/test.py",
         "input_root": rel(source_root, repo),
         "gt_root": rel(gt_dir, repo),
@@ -570,6 +572,7 @@ def precheck(state: DemoState) -> dict[str, Path]:
         "source_root": source_root,
         "data_root": data_root,
         "checkpoint": checkpoint,
+        "pretrained_weight": pretrained_weight,
         "gt_dir": gt_dir,
     }
 
