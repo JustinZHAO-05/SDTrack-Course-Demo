@@ -14,22 +14,6 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-
-from .atr_gtp_tracker_eval import prepare_variant_dataset
-from .metrics import (
-    center_error_xywh,
-    compute_sequence_metrics,
-    load_xywh,
-    normalized_center_error_xywh,
-    normalized_precision_curve,
-    precision_curve,
-    success_curve,
-)
-from .visualize_sequences import build_sequence
-
 
 VARIANTS = ["baseline", "adaptive_smooth"]
 COLORS = {"baseline": "#2563AF", "adaptive_smooth": "#2E8B57"}
@@ -43,6 +27,67 @@ RECOMMENDED_SEQUENCES = {
     "cup_low": "低照度小目标；适合展示目标尺度影响",
     "truck_hdr": "车辆与高动态范围；运行时间较短",
 }
+
+
+plt = None
+np = None
+pd = None
+prepare_variant_dataset = None
+compute_sequence_metrics = None
+load_xywh = None
+normalized_precision_curve = None
+precision_curve = None
+success_curve = None
+build_sequence = None
+
+
+def ensure_eval_dependencies() -> None:
+    global np, pd, compute_sequence_metrics, load_xywh, normalized_precision_curve, precision_curve, success_curve
+    if np is None or pd is None:
+        import numpy as _np
+        import pandas as _pd
+
+        np = _np
+        pd = _pd
+    if compute_sequence_metrics is None:
+        from .metrics import (
+            compute_sequence_metrics as _compute_sequence_metrics,
+            load_xywh as _load_xywh,
+            normalized_precision_curve as _normalized_precision_curve,
+            precision_curve as _precision_curve,
+            success_curve as _success_curve,
+        )
+
+        compute_sequence_metrics = _compute_sequence_metrics
+        load_xywh = _load_xywh
+        normalized_precision_curve = _normalized_precision_curve
+        precision_curve = _precision_curve
+        success_curve = _success_curve
+
+
+def ensure_plot_dependencies() -> None:
+    global plt
+    ensure_eval_dependencies()
+    if plt is None:
+        import matplotlib.pyplot as _plt
+
+        plt = _plt
+
+
+def ensure_visual_dependencies() -> None:
+    global build_sequence
+    if build_sequence is None:
+        from .visualize_sequences import build_sequence as _build_sequence
+
+        build_sequence = _build_sequence
+
+
+def ensure_atr_dependencies() -> None:
+    global prepare_variant_dataset
+    if prepare_variant_dataset is None:
+        from .atr_gtp_tracker_eval import prepare_variant_dataset as _prepare_variant_dataset
+
+        prepare_variant_dataset = _prepare_variant_dataset
 
 
 @dataclass
@@ -587,6 +632,7 @@ def collect_replay_predictions(state: DemoState, paths: dict[str, Path]) -> tupl
 
 
 def evaluate_demo(state: DemoState, baseline_pred_dir: Path, atr_pred_dir: Path, gt_dir: Path) -> None:
+    ensure_eval_dependencies()
     rows = []
     all_iou_rows = []
     per_seq_rows = []
@@ -641,6 +687,7 @@ def evaluate_demo(state: DemoState, baseline_pred_dir: Path, atr_pred_dir: Path,
 
 
 def plot_demo_figures(state: DemoState) -> None:
+    ensure_plot_dependencies()
     plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei", "SimSun", "DejaVu Sans"]
     plt.rcParams["axes.unicode_minus"] = False
     fig_dir = state.out_dir / "figures"
@@ -687,6 +734,7 @@ def plot_demo_figures(state: DemoState) -> None:
 
 
 def generate_visuals(state: DemoState, paths: dict[str, Path], baseline_pred_dir: Path, atr_pred_dir: Path, atr_input_root: Path) -> None:
+    ensure_visual_dependencies()
     videos_dir = state.out_dir / "videos"
     figures_dir = state.out_dir / "figures"
     tables_dir = state.out_dir / "tables"
@@ -785,6 +833,7 @@ def run_demo(state: DemoState) -> None:
         set_stage(state, "run original SDTrack-Tiny", "done", "baseline prediction files generated")
 
         set_stage(state, "prepare ATR-GTP input", "running", "generating adaptive_smooth trajectory-channel input")
+        ensure_atr_dependencies()
         dataset_root, transform_rows = prepare_variant_dataset(paths["source_root"], state.out_dir / "atr_gtp", "adaptive_smooth", state.sequences)
         if transform_rows:
             transform_log = state.out_dir / "atr_gtp" / "variant_transform_log.csv"
