@@ -1,6 +1,6 @@
 # SDTrack-Course-Demo
 
-本仓库是围绕 CVPR 2026 论文 **SDTrack: A Baseline for Event-based Tracking via Spiking Neural Networks** 的课程项目交付，包含中文 LaTeX 报告、可编辑 PPTX、官方 SDTrack 代码、FE108 demo 数据子集、SDTrack-Tiny checkpoint、ATR-GTP 输入级改进、独立评估器、图表生成脚本和现场 demo dashboard。
+本仓库是围绕 CVPR 2026 论文 **SDTrack: A Baseline for Event-based Tracking via Spiking Neural Networks** 的课程项目交付，包含中文 LaTeX 报告、可编辑 PPTX、官方 SDTrack 代码、FE108 demo 数据子集、SDTrack-Tiny checkpoint、SNN 初始化权重、ATR-GTP 输入级改进、独立评估器、图表生成脚本和现场 demo dashboard。
 
 仓库目标是让他人 clone 后，在安装环境依赖并拉取 Git LFS 大文件后，可以：
 
@@ -19,7 +19,7 @@ git lfs install
 git lfs pull
 ```
 
-Git LFS 资源包括 demo 输入帧、checkpoint、最终 PDF/PPTX 和二进制图片资源。若未执行 `git lfs pull`，demo 可能因为缺少 checkpoint 或 PNG 帧而失败。
+Git LFS 资源包括 demo 输入帧、checkpoint、SNN 初始化权重、最终 PDF/PPTX 和二进制图片资源。若未执行 `git lfs pull`，demo 可能因为缺少权重或 PNG 帧而失败。
 
 ### 2. Create Python Environment
 
@@ -117,6 +117,7 @@ report/                 中文 LaTeX 报告源码和 BibTeX
 slides/                 PPT 生成工程
 external/SDTrack/       官方 SDTrack 代码，vendored third-party
 demo_assets/            可随仓库 clone 的 FE108 demo 子集
+data/weights/           demo 所需 SNN 初始化权重
 outputs/checkpoints/    demo 所需 SDTrack-Tiny checkpoint
 outputs/figures/        报告使用的实验图表
 outputs/cases/          报告使用的案例图和帧流截图
@@ -133,7 +134,7 @@ PROJECT_GUIDE.md
 
 ## Data Notes
 
-默认 demo 不需要完整 FE108 数据，只需要仓库内 `demo_assets` 和 checkpoint。
+默认 demo 不需要完整 FE108 数据，只需要仓库内 `demo_assets`、`data/weights` 中的初始化权重和 `outputs/checkpoints` 中的 checkpoint。
 
 完整 FE108/VisEvent 大规模复现实验需要额外下载数据。资源清单位于：
 
