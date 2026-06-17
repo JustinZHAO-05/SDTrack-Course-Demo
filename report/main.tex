@@ -44,7 +44,7 @@
 \maketitle
 \begin{abstract}
 \small
-本文围绕 CVPR 2026 论文 SDTrack 展开系统性解读与复现实验。该工作将事件相机输出的异步事件流转化为含正极性计数、负极性计数和全局轨迹记忆的三通道 Global Trajectory Prompt (GTP)，并通过 Intrinsic Position Learning (IPL)、Spiking MetaFormer backbone 与 spike-driven center head 构建端到端事件跟踪器。本文在正文中对事件定义、GTP、I-LIF 神经元、SNN attention、定位指标和能耗公式进行推导式讲解，并基于作者公开 FE108 与 VisEvent tracking results 进行独立复算：FE108 覆盖 32 个测试序列、59688 帧，SDTrack-Base/SDTrack-Tiny 的 AUC 分别为 60.15\%/59.29\%；VisEvent 覆盖 172 个测试序列、93805 帧，SDTrack-Base/SDTrack-Tiny 的 AUC 分别为 34.49\%/33.21\%。进一步地，本文提出 ATR-GTP，将固定轨迹通道强度扩展为事件密度驱动的自适应权重，并给出七组消融协议、可运行代码、图表脚本和一键复现入口。
+本文围绕 CVPR 2026 论文 SDTrack 展开系统性解读与复现实验。该工作将事件相机输出的异步事件流转化为含正极性计数、负极性计数和全局轨迹记忆的三通道 Global Trajectory Prompt (GTP)，并通过 Intrinsic Position Learning (IPL)、Spiking MetaFormer backbone 与 spike-driven center head 构建端到端事件跟踪器。本文在正文中对事件定义、GTP、I-LIF 神经元、SNN attention、定位指标和能耗公式进行推导式讲解，并基于作者公开 FE108 与 VisEvent tracking results 进行独立复算：FE108 覆盖 32 个测试序列、59688 帧，SDTrack-Base/SDTrack-Tiny 的 AUC 分别为 60.15\%/59.29\%；VisEvent 覆盖 172 个测试序列、93805 帧，SDTrack-Base/SDTrack-Tiny 的 AUC 分别为 34.49\%/33.21\%。进一步地，本文提出 ATR-GTP，将固定轨迹通道强度扩展为事件密度驱动的自适应权重，并给出七组消融协议。在 RTX 4050 Laptop 上，本文完成 FE108 全量 Tiny checkpoint 官方推理，得到 AUC 59.36\%、PR20 91.03\%；在 5 条代表性序列的完整 tracker 消融中，adaptive\_smooth 相比 baseline 提升 AUC +0.50、PR20 +0.76，验证了轨迹通道调权对定位稳定性的影响。
 \end{abstract}
 
 \vspace{-0.6em}
