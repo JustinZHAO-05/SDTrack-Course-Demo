@@ -23,8 +23,9 @@ def main():
         "eotb_path": str(root / "data/FE108/test"),
         "visevent_path": str(root / "data/VisEvent/test"),
     }
-    code = "from lib.test.evaluation.environment import EnvSettings\n\ndef local_env_settings():\n    settings = EnvSettings()\n"
-    code += "".join(f"    settings.{key} = {value!r}\n" for key, value in config.items())
+    code = "import os\nfrom lib.test.evaluation.environment import EnvSettings\n\ndef local_env_settings():\n    settings = EnvSettings()\n"
+    env_keys = {"prj_dir": "SDTRACK_PRJ_DIR", "save_dir": "SDTRACK_SAVE_DIR", "network_path": "SDTRACK_NETWORK_PATH", "results_path": "SDTRACK_RESULTS_PATH", "result_plot_path": "SDTRACK_RESULT_PLOT_PATH", "segmentation_path": "SDTRACK_SEGMENTATION_PATH", "eotb_path": "SDTRACK_EOTB_PATH", "visevent_path": "SDTRACK_VISEVENT_PATH"}
+    code += "".join(f"    settings.{key} = os.environ.get({env_keys[key]!r}, {value!r})\n" for key, value in config.items())
     code += "    return settings\n"
     target = event / "lib/test/evaluation/local.py"
     target.write_text(code, encoding="utf-8")
