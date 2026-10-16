@@ -1,25 +1,15 @@
 # Third-Party Notices
 
-## SDTrack
+## SDTrack (external dependency; not distributed)
 
-- Repository: https://github.com/YmShan/SDTrack
-- Vendored path: `external/SDTrack`
-- Commit used in this project: `a3e4d8d508e1808e9e41629733b20d38ee52ce05`
-- License: MIT License, copyright (c) 2025 Yimeng Shan.
+- Official repository: https://github.com/YmShan/SDTrack
+- Version used: `a3e4d8d508e1808e9e41629733b20d38ee52ce05`
+- Original license: MIT, copyright (c) 2025 Yimeng Shan.
 
-The official SDTrack source code is included as third-party code for reproducible course experiments and live demo execution. Local path configuration files were adjusted so the code can run from a cloned project directory instead of a machine-specific absolute path.
+Obtain the source separately under its own license. This repository contains original course-project analysis and ATR-GTP extensions, not a redistributed SDTrack checkout. Cite the original SDTrack/GTP work when using its tracker or event representation.
 
-## Paper
+Original paper: Yimeng Shan et al., *SDTrack: A Baseline for Event-based Tracking via Spiking Neural Networks*. https://arxiv.org/abs/2503.08703 . See `report/refs.bib` for the report's bibliography.
 
-This project analyzes and reproduces:
+## Data, weights and official predictions
 
-```bibtex
-@inproceedings{shan2026sdtrack,
-  title     = {SDTrack: A Baseline for Event-based Tracking via Spiking Neural Networks},
-  author    = {Shan, Yimeng and others},
-  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  year      = {2026}
-}
-```
-
-Please cite the original paper and the official repository when using SDTrack itself.
+FE108/VisEvent data, official result bundles and pretrained weights are external resources; access and reuse are governed by their original providers. Download links are documented in `data/resource_manifest.json`. They are not distributed here. Authored historical reports retain cited scientific illustrations and analysis; raw frame sequences and standalone paper-image copies are excluded from the public source tree.

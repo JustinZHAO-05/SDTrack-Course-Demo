@@ -529,7 +529,7 @@ def precheck(state: DemoState) -> dict[str, Path]:
         if not (source_root / sequence / "groundtruth_rect.txt").exists():
             missing.append(str(source_root / sequence / "groundtruth_rect.txt"))
     if missing:
-        raise FileNotFoundError("missing required demo resources:\n" + "\n".join(missing))
+        raise FileNotFoundError("External demo dependencies are not bundled. Follow README.md to install SDTrack, obtain FE108 and weights. Missing:\n" + "\n".join(missing))
 
     torch_info = subprocess.run(
         [str(python), "-c", "import torch, json; print(json.dumps({'torch': torch.__version__, 'cuda': torch.cuda.is_available(), 'gpu': torch.cuda.get_device_name(0) if torch.cuda.is_available() else ''}, ensure_ascii=False))"],

@@ -274,7 +274,7 @@ FE108 推理 & 32 序列，59688 帧 & 官方测试入口生成 prediction 文�
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.70\linewidth]{dataset_event_samples.png}
+\fbox{\parbox{0.80\linewidth}{\centering 第三方原始图像未随公开源码分发。请按 README 自行获取外部资源并重新生成；此处保留图号与历史分析说明。}}
 \caption{FE108 真实事件帧样例。六个子图覆盖快速运动、低事件密度、形变、高动态范围、相似目标和多目标干扰等典型属性。为便于阅读，显示图像进行了对比度增强，实验指标仍由原始输入与 prediction 文件计算。}
 \label{fig:dataset-real-samples}
 \end{figure}
@@ -283,7 +283,7 @@ FE108 推理 & 32 序列，59688 帧 & 官方测试入口生成 prediction 文�
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.70\linewidth]{tracking_process_star_motion.png}
+\fbox{\parbox{0.80\linewidth}{\centering 第三方原始图像未随公开源码分发。请按 README 自行获取外部资源并重新生成；此处保留图号与历史分析说明。}}
 \caption{star\_motion 序列真实推理过程截图。六帧按从左到右、从上到下排列；红色为真值框，蓝色为本机 SDTrack-Tiny 推理结果，绿色为 ATR-GTP adaptive\_smooth 推理结果。为便于观察稀疏事件结构，截图仅在可视化阶段做对比度增强。}
 \label{fig:tracking-process-real}
 \end{figure}
@@ -303,7 +303,7 @@ FE108 推理 & 32 序列，59688 帧 & 官方测试入口生成 prediction 文�
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.86\linewidth]{sequence_star_motion_input_contact.png}
+\fbox{\parbox{0.80\linewidth}{\centering 第三方原始图像未随公开源码分发。请按 README 自行获取外部资源并重新生成；此处保留图号与历史分析说明。}}
 \caption{star\_motion 完整输入事件帧流的有效事件段抽样。该图仅显示输入事件图像，不叠加预测框，用于观察模型实际接收的连续 GTP 图像序列。}
 \label{fig:sequence-input-full}
 \end{figure}
@@ -312,7 +312,7 @@ FE108 推理 & 32 序列，59688 帧 & 官方测试入口生成 prediction 文�
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.86\linewidth]{sequence_star_motion_output_contact.png}
+\fbox{\parbox{0.80\linewidth}{\centering 第三方原始图像未随公开源码分发。请按 README 自行获取外部资源并重新生成；此处保留图号与历史分析说明。}}
 \caption{star\_motion 完整输出框序列的有效事件段抽样。红色为真值框，蓝色为本机 SDTrack-Tiny 推理框，绿色为 ATR-GTP adaptive\_smooth 推理框；对应完整视频覆盖 2122 帧。}
 \label{fig:sequence-output-full}
 \end{figure}
@@ -381,7 +381,7 @@ VisEvent 复算覆盖 172 个测试序列和 93805 帧，tracker 数量为 18。
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\linewidth]{failure_case_grid.png}
+\fbox{\parbox{0.80\linewidth}{\centering 第三方原始图像未随公开源码分发。请按 README 自行获取外部资源并重新生成；此处保留图号与历史分析说明。}}
 \caption{FE108 worst-frame 真实截图。六个子图为 evaluator 自动筛选出的失败帧；红色为真值框，蓝色为预测框，用于辅助诊断低 IoU、中心漂移、背景吸附和尺度响应异常。图像亮度仅为显示增强。}
 \label{fig:failure-real-grid}
 \end{figure}
@@ -392,7 +392,7 @@ VisEvent 复算覆盖 172 个测试序列和 93805 帧，tracker 数量为 18。
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.72\linewidth]{sdtrack_original_structure_clean.png}
+\fbox{\parbox{0.80\linewidth}{\centering 第三方原始图像未随公开源码分发。请按 README 自行获取外部资源并重新生成；此处保留图号与历史分析说明。}}
 \caption{SDTrack 原始结构总览图，摘自 \citep{shan2026sdtrack}。该图用于说明方法的完整模块关系：GTP 生成事件图像，IPL 建立 template-search 几何联系，SNN backbone 提取脉冲特征，tracking head 完成连续目标框回归。}
 \label{fig:paper-structure}
 \end{figure}
@@ -577,7 +577,7 @@ adaptive\_smooth & 5 & 10184 & 61.38 & 92.63 & 66.44 & 61.46 & +0.50 & +0.76\\
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.84\linewidth]{sequence_star_motion_atr_input_compare.png}
+\fbox{\parbox{0.80\linewidth}{\centering 第三方原始图像未随公开源码分发。请按 README 自行获取外部资源并重新生成；此处保留图号与历史分析说明。}}
 \caption{star\_motion 的 ATR-GTP 输入对比帧流有效事件段抽样。上排为原始 GTP 输入，下排为 adaptive\_smooth 输入；对应完整对比视频覆盖 2122 帧。}
 \label{fig:atr-input-full}
 \end{figure}
@@ -586,7 +586,7 @@ adaptive\_smooth & 5 & 10184 & 61.38 & 92.63 & 66.44 & 61.46 & +0.50 & +0.76\\
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.72\linewidth]{real_tracking_cases.png}
+\fbox{\parbox{0.80\linewidth}{\centering 第三方原始图像未随公开源码分发。请按 README 自行获取外部资源并重新生成；此处保留图号与历史分析说明。}}
 \caption{ATR-GTP 完整 tracker 推理真实截图。红色为真值框，蓝色为 baseline，绿色为 adaptive\_smooth；该图用于展示改进方案在成功样例和失败样例中的实际定位效果。图像亮度仅为显示增强，定位框和指标来自实际推理结果。}
 \label{fig:atr-real-cases}
 \end{figure}

@@ -25,7 +25,7 @@ data/FE108
 data/VisEvent
 data/official_results_E
 data/weights/*
-!data/weights/SDTrack-tiny-1x4.pth
+
 data/**/*.part
 data/official_results/*.zip
 external_data/
@@ -57,7 +57,7 @@ outputs/checkpoints/train/*
 !outputs/checkpoints/train/SDTrack/
 outputs/checkpoints/train/SDTrack/*
 !outputs/checkpoints/train/SDTrack/SDTrack-tiny-fe108/
-!outputs/checkpoints/train/SDTrack/SDTrack-tiny-fe108/SDTrack_ep0100.pth.tar
+
 
 # Report assets required for fast LaTeX rebuilds.
 !outputs/figures/
@@ -92,3 +92,11 @@ outputs/pdf_preview*/
 outputs/qa_appendix/
 outputs/logs/
 outputs/gtp_sample/
+
+# External resources, installed separately
+/external/SDTrack/
+/demo_assets/FE108/
+/data/official_results/
+/data/weights/
+/outputs/checkpoints/
+/outputs/paper_figures/

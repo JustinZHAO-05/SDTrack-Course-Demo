@@ -1,159 +1,84 @@
 # SDTrack-Course-Demo
 
-本仓库是围绕 CVPR 2026 论文 **SDTrack: A Baseline for Event-based Tracking via Spiking Neural Networks** 的课程项目交付，包含中文 LaTeX 报告、可编辑 PPTX、官方 SDTrack 代码、FE108 demo 数据子集、SDTrack-Tiny checkpoint、SNN 初始化权重、ATR-GTP 输入级改进、独立评估器、图表生成脚本和现场 demo dashboard。
+围绕 SDTrack 的课程研究项目，保留原创 **ATR-GTP 输入级改进**、独立评估器、实验与可视化脚本、报告、PPT 和分析图表。SDTrack 原算法归原作者所有，本项目不将其作为原创成果。
 
-仓库目标是让他人 clone 后，在安装环境依赖并拉取 Git LFS 大文件后，可以：
+第三方 SDTrack 源码、FE108 原始帧与标注、官方结果分发包、预训练权重和原始帧衍生 contact sheets 已移除，不再随仓库分发。已有报告/PPT 是历史实验的作者撰写交付，包含引用的科学插图；它们不是可运行的数据包。机制示意图与汇总分析图保留。
 
-- 修改和重新编译中文论文报告。
-- 运行默认现场 demo，展示原始 SDTrack-Tiny 与 ATR-GTP adaptive_smooth 改进后跟踪器。
-- 查看实验图表、指标、prediction、输入帧流、输出叠框视频和 IoU 曲线。
+## 安装
 
-## Quick Start
-
-### 1. Clone and Pull LFS Assets
-
-```powershell
+```bash
 git clone https://github.com/JustinZHAO-05/SDTrack-Course-Demo.git
 cd SDTrack-Course-Demo
 git lfs install
 git lfs pull
+python -m pip install -r requirements-report.txt
 ```
 
-Git LFS 资源包括 demo 输入帧、checkpoint、SNN 初始化权重、最终 PDF/PPTX 和二进制图片资源。若未执行 `git lfs pull`，demo 可能因为缺少权重或 PNG 帧而失败。
+LFS 现在仅用于保留的报告、PPT 和图表等资源；不会下载模型或数据。单独安装推理环境时使用 `requirements-sdtrack-cu121.txt`，完整模型推理还需要 CUDA。
 
-### 2. Create Python Environment
+### 自行安装官方 SDTrack
 
-```powershell
-py -3.10 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install --upgrade pip
-.\.venv\Scripts\python.exe -m pip install -r requirements-sdtrack-cu121.txt
+从[官方仓库](https://github.com/YmShan/SDTrack)获取项目使用的固定版本：
+
+```bash
+git clone https://github.com/YmShan/SDTrack.git external/SDTrack
+git -C external/SDTrack checkout a3e4d8d508e1808e9e41629733b20d38ee52ce05
+python -m src.configure_sdtrack
 ```
 
-检查 CUDA：
+最后一条命令只写入本机上游 checkout 的路径配置，不分发上游源码。请同时遵循官方安装说明、许可与引用要求。
 
-```powershell
-.\.venv\Scripts\python.exe -c "import torch; print(torch.__version__, torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'no cuda')"
+### 自行获取数据与权重
+
+通过 [FE108 官方数据入口](https://zhangjiqing.com/dataset/)及 [SDTrack-Event 官方说明](https://github.com/YmShan/SDTrack/tree/a3e4d8d508e1808e9e41629733b20d38ee52ce05/SDTrack-Event)获取授权数据、GTP 预处理版本、模型和官方预测结果。具体资源链接保留在 [`data/resource_manifest.json`](data/resource_manifest.json)，有效性及使用条款以原作者入口为准。
+
+现有脚本约定本地目录如下（全部忽略、不提交）：
+
+- `data/FE108/test/<sequence>/inter1_stack_3008/*.png`：GTP 三通道帧。
+- `data/FE108/test/<sequence>/groundtruth_rect.txt`：序列标注。
+- `data/official_results_E/FE108_eval/FE108/annos/gt_rect/<sequence>.txt`：评估真值；可选 absent 标志放在相邻目录。
+- `data/weights/SDTrack-tiny-1x4.pth`：官方初始化权重。
+- `outputs/checkpoints/train/SDTrack/SDTrack-tiny-fe108/SDTrack_ep0100.pth.tar`：官方 FE108 checkpoint。
+
+已有压缩包可通过 `run_data_setup.ps1` 整理；源目录与工作目录可设置 `SDTRACK_SOURCE_ROOT`、`SDTRACK_WORK_ROOT`，详见 `python -m src.data_setup --help`。
+
+## 运行
+
+无需第三方源码、模型或数据的合成演示：
+
+```bash
+python -m src.synthetic_demo
 ```
 
-### 3. Run Live Demo
+它生成合成 GTP 帧、运行 ATR-GTP 轨迹通道变换，并用已知框验证 IoU 评估器，不代表真实数据集性能。
 
-```powershell
-.\run_demo.ps1
-```
-
-默认 demo 使用项目内 `demo_assets/FE108/test/bike_low`，并完整运行：
-
-1. 原始模型：SDTrack-Tiny checkpoint + 原始 GTP 输入。
-2. 改进后跟踪器：同一 checkpoint + ATR-GTP adaptive_smooth 输入。
-3. 指标评估：AUC、PR20、NP@0.2、mean IoU、中心误差。
-4. 可视化：输入事件帧流、输出叠框视频、ATR-GTP 输入对比、IoU 曲线、prediction 样例。
-
-结果位于：
-
-```text
-outputs/demo/<timestamp>/index.html
-```
-
-常用 demo 命令：
+完整 demo 在补齐上述外部依赖后运行：
 
 ```powershell
 .\run_demo.ps1 -ListSequences
-.\run_demo.ps1 -Sequence box_hdr
-.\run_demo.ps1 -Sequence bike_low,box_hdr
+.\run_demo.ps1 -Sequence bike_low
 .\run_demo.ps1 -NoBrowser
-.\run_demo.ps1 -ReplayOnly
 ```
 
-## Modify and Compile the Report
+缺少资源时会列出缺失路径，并提示阅读本说明。`-ReplayOnly` 仍需要本地已经生成的 demo 结果。
 
-LaTeX 主文件：
+## 报告与代码
 
-```text
-report/main.tex
-```
-
-参考文献：
-
-```text
-report/refs.bib
-```
-
-只修改文字、公式、引用或图片尺寸时，使用快速编译：
+- `src/`：原创 ATR-GTP、评估、分析与 demo 调度。
+- `report/main.tex`、`report/refs.bib`：中文报告与参考文献。
+- `slides/`：可编辑 PPT 源工程。
+- `outputs/figures/`、`outputs/tables/`：保留的机制图、分析图与结果表。
+- `outputs/*.pdf`、`outputs/*.pptx`、`outputs/pdf/main.pdf`：历史作者交付文件。
 
 ```powershell
-.\run_report_fast.ps1
+.\run_report_fast.ps1  # 使用保留图表编译报告
+.\run_figures.ps1      # 重画图表；真实案例需外部数据
+.\run_experiments.ps1  # 外部数据与官方模型推理
+.\run_slides.ps1
 ```
 
-该命令不会重画图表，输出：
+公开 LaTeX 源码中不再内嵌第三方原图或原始帧 contact sheets，相关位置保留说明框；自行获取数据后可用原有可视化脚本重新生成。完整实验不在本次清理中重跑。
 
-```text
-outputs/pdf/main.pdf
-outputs/序号+SDTrack+姓名1+姓名2+姓名3+姓名4.pdf
-```
+## 引用与许可
 
-如果修改了绘图脚本、指标 CSV 或案例可视化，使用完整报告构建：
-
-```powershell
-.\run_report.ps1
-```
-
-## Main Commands
-
-```powershell
-.\run_demo.ps1              # 现场 demo
-.\run_report_fast.ps1       # 快速编译报告，不重画图表
-.\run_report.ps1            # 重画图表并编译报告
-.\run_figures.ps1           # 只重画图表和案例图
-.\run_experiments.ps1       # 实验/评估入口
-.\run_all.ps1               # 实验、图表、报告、PPT 全流程
-.\run_slides.ps1            # 生成 PPTX
-```
-
-## Repository Layout
-
-```text
-src/                    自写评估、绘图、ATR-GTP、demo 调度代码
-report/                 中文 LaTeX 报告源码和 BibTeX
-slides/                 PPT 生成工程
-external/SDTrack/       官方 SDTrack 代码，vendored third-party
-demo_assets/            可随仓库 clone 的 FE108 demo 子集
-data/weights/           demo 所需 SNN 初始化权重
-outputs/checkpoints/    demo 所需 SDTrack-Tiny checkpoint
-outputs/figures/        报告使用的实验图表
-outputs/cases/          报告使用的案例图和帧流截图
-outputs/tables/         报告使用的 LaTeX/CSV 表格
-outputs/*.pdf           最终报告 PDF
-outputs/*.pptx          最终 PPTX
-```
-
-更完整的交接说明见：
-
-```text
-PROJECT_GUIDE.md
-```
-
-## Data Notes
-
-默认 demo 不需要完整 FE108 数据，只需要仓库内 `demo_assets`、`data/weights` 中的初始化权重和 `outputs/checkpoints` 中的 checkpoint。
-
-完整 FE108/VisEvent 大规模复现实验需要额外下载数据。资源清单位于：
-
-```text
-data/resource_manifest.json
-```
-
-推荐完整数据目录结构见 `PROJECT_GUIDE.md`。本仓库不提交完整 FE108/VisEvent 数据集，只提交可运行默认 demo 的最小子集。
-
-## Third-Party Code and Citation
-
-Official SDTrack code is vendored under `external/SDTrack` from commit:
-
-```text
-a3e4d8d508e1808e9e41629733b20d38ee52ce05
-```
-
-See `THIRD_PARTY_NOTICES.md` for license and citation notes.
-
-## License
-
-This course project code and documentation are released under the MIT License. Third-party SDTrack code keeps its original MIT License and copyright.
+原创课程项目代码和文档使用 [MIT License](LICENSE)。SDTrack、FE108、外部权重与结果遵循各自原作者的许可和访问条件。使用 SDTrack/GTP 请引用原论文，见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
